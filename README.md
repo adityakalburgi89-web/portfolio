@@ -2,7 +2,7 @@
 
 A professional, recruiter-ready portfolio website built with vanilla HTML5, CSS3, and JavaScript. This single-page portfolio showcases full-stack Java development skills with a clean, modern, enterprise-style design.
 
-## 🚀 Features
+## Features
 
 - **Fully Responsive**: Mobile-first design that works on all devices
 - **Smooth Scrolling**: JavaScript-powered smooth scroll navigation
@@ -12,7 +12,7 @@ A professional, recruiter-ready portfolio website built with vanilla HTML5, CSS3
 - **SEO Friendly**: Semantic HTML5 structure
 - **Fast Loading**: No frameworks, pure vanilla JavaScript
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfoliio/
@@ -22,7 +22,7 @@ portfoliio/
 └── README.md       # This file
 ```
 
-## 🎨 Sections
+## Sections
 
 1. **Header/Navigation** - Sticky navigation bar with active link highlighting
 2. **Hero Section** - Introduction with call-to-action buttons
@@ -33,7 +33,7 @@ portfoliio/
 7. **Contact** - Contact form with validation and social links
 8. **Footer** - Copyright and social media links
 
-## 🛠️ Tech Stack Highlighted
+## Tech Stack Highlighted
 
 - **Backend**: Java, Spring Boot, REST APIs, Spring Security, JWT, Hibernate, JPA
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
@@ -41,7 +41,7 @@ portfoliio/
 - **Tools**: Git, GitHub, Docker, Postman
 - **Deployment**: Vercel, Netlify, Render
 
-## 📝 Customization
+## Customization
 
 ### Update Personal Information
 
@@ -74,7 +74,7 @@ The color scheme is defined in CSS variables at the top of `style.css`:
 
 Modify these variables to change the color scheme throughout the site.
 
-## 🚀 Deployment
+## Deployment
 
 ### Vercel
 
@@ -94,7 +94,7 @@ Modify these variables to change the color scheme throughout the site.
 3. Set build command: (none needed for static site)
 4. Set publish directory: `/`
 
-## 📱 Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -102,11 +102,11 @@ Modify these variables to change the color scheme throughout the site.
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 📄 License
+## License
 
 This project is open source and available for personal use.
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to fork this project and customize it for your own portfolio!
 
