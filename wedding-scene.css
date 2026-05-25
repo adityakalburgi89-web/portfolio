@@ -1,0 +1,383 @@
+/* ==========================================================================
+   RAMA-SITA INDIAN WEDDING SCENE - DEVOTIONAL PORTRAIT CANVAS
+   ========================================================================== */
+
+:root {
+  --wedding-gold: #d4a017;
+  --wedding-maroon: #4a0e17;
+  --wedding-orange: #d97706;
+  --wedding-amber: #b45309;
+  --wedding-cream: #fef3c7;
+}
+
+/* Outer Section Container */
+.wedding-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.wedding-section__header {
+  display: none;
+}
+
+/* Outer Frame & Canvas Stage Wrapper */
+.wedding-stage-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .wedding-stage-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Main 9:16 Devotional Canvas Container */
+.wedding-canvas {
+  position: relative;
+  width: min(100vw, 540px);
+  aspect-ratio: 9 / 16;
+  background: transparent !important;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  user-select: none;
+  isolation: isolate;
+}
+
+/* Background Texture Layer (Disabled) */
+.wedding-bg-pattern {
+  display: none !important;
+}
+
+/* Floral Corner Decor */
+.wedding-layer-corner-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+
+.wedding-layer-corner-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+
+/* Mandap Layers */
+.wedding-mandap-arch {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+  transition: opacity 0.4s ease;
+}
+
+.wedding-mandap-pillar-left {
+  position: absolute;
+  top: 8%;
+  left: 3.5%;
+  width: 22%;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.wedding-mandap-pillar-right {
+  position: absolute;
+  top: 8%;
+  right: 3.5%;
+  width: 22%;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(-4px 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+/* Toran & Strings */
+.wedding-toran {
+  position: absolute;
+  top: 11%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.wedding-hanging-strings {
+  position: absolute;
+  top: 13.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86%;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: top center;
+  animation: stringSway 7s ease-in-out infinite alternate;
+}
+
+/* Couple Layer: Rama & Sita */
+.wedding-couple-container {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.wedding-char-rama {
+  position: absolute;
+  bottom: 18.5%;
+  left: 21%;
+  height: 55.5%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(251, 191, 36, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.wedding-char-sita {
+  position: absolute;
+  bottom: 18.5%;
+  left: 49%;
+  height: 51.5%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(251, 191, 36, 0.3));
+  transition: transform 0.3s ease;
+}
+
+/* Divine Halo Glow behind heads */
+.wedding-halo-glow-rama {
+  position: absolute;
+  bottom: 58%;
+  left: 31%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.4) 0%, rgba(245, 158, 11, 0.15) 50%, transparent 70%);
+  filter: blur(8px);
+  z-index: 5;
+  animation: haloBreathing 4s ease-in-out infinite alternate;
+}
+
+.wedding-halo-glow-sita {
+  position: absolute;
+  bottom: 54%;
+  left: 57%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.4) 0%, rgba(245, 158, 11, 0.15) 50%, transparent 70%);
+  filter: blur(8px);
+  z-index: 5;
+  animation: haloBreathing 4s ease-in-out infinite alternate 1s;
+}
+
+/* Rangoli Base Decor */
+.wedding-rangoli {
+  position: absolute;
+  bottom: 0.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: auto;
+  z-index: 7;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+  animation: diyaPulseGlow 3s ease-in-out infinite alternate;
+}
+
+/* Havan Kund & Sacred Fire */
+.wedding-havan-container {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22%;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wedding-havan-kund {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.8));
+}
+
+.wedding-fire-flame {
+  position: absolute;
+  bottom: 60%;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  transform-origin: bottom center;
+  animation: flameFlicker 1.8s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.9)) drop-shadow(0 0 30px rgba(234, 88, 12, 0.6));
+}
+
+.wedding-fire-aura {
+  position: absolute;
+  bottom: 40%;
+  width: 160%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.5) 0%, rgba(234, 88, 12, 0.2) 50%, transparent 80%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: -1;
+  animation: fireAuraPulse 2s ease-in-out infinite alternate;
+}
+
+/* Falling Flower Petals Layer (Disabled) */
+.wedding-petals-layer,
+.petal {
+  display: none !important;
+}
+
+/* Soft Golden Overlay & Vignette (Disabled) */
+.wedding-golden-overlay {
+  display: none !important;
+}
+
+/* Controls Panel */
+.wedding-controls-panel {
+  display: none !important;
+}
+
+.wedding-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #78350f 0%, #451a03 100%);
+  color: #fef08a;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wedding-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+  color: #ffffff;
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+}
+
+.wedding-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.wedding-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #6b7280;
+}
+
+/* Keyframe Animations */
+@keyframes flameFlicker {
+  0% {
+    transform: scale(0.96) rotate(-1.5deg);
+    opacity: 0.88;
+    filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.8)) brightness(1);
+  }
+  50% {
+    transform: scale(1.04) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 22px rgba(251, 191, 36, 1)) brightness(1.25);
+  }
+  100% {
+    transform: scale(0.98) rotate(-0.5deg);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 16px rgba(234, 88, 12, 0.9)) brightness(1.1);
+  }
+}
+
+@keyframes fireAuraPulse {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.85; }
+}
+
+@keyframes diyaPulseGlow {
+  0% { filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 8px rgba(245, 158, 11, 0.4)); }
+  100% { filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8)); }
+}
+
+@keyframes stringSway {
+  0% { transform: translateX(-50%) rotate(-1.2deg); }
+  100% { transform: translateX(-50%) rotate(1.2deg); }
+}
+
+@keyframes haloBreathing {
+  0% { transform: scale(0.95); opacity: 0.4; }
+  100% { transform: scale(1.1); opacity: 0.7; }
+}
+
+@keyframes petalDrop {
+  0% {
+    transform: translateY(-25px) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.8; }
+  100% {
+    transform: translateY(105%) rotate(420deg) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .wedding-fire-flame,
+  .wedding-fire-aura,
+  .wedding-hanging-strings,
+  .wedding-halo-glow-rama,
+  .wedding-halo-glow-sita,
+  .wedding-rangoli,
+  .petal {
+    animation: none !important;
+  }
+}

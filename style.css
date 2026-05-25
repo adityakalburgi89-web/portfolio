@@ -470,3 +470,26 @@ body.ui-sketch .radio-group {
         gap: 24px;
     }
 }
+
+/* Skills Icon & Card Base Alignment */
+.skill__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+}
+
+.skill__name {
+    white-space: nowrap;
+}
+
+.skill__icon {
+    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

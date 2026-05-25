@@ -3,29 +3,6 @@
     const STORAGE_KEY = 'portfolio-ui-theme';
     const themeRadios = document.querySelectorAll('input[name="theme-choice"]');
 
-    // Retro Arcade Game Music for Sketch Theme
-    const sketchMusic = new Audio('.vscode/Music/slimeyfox-arcade-80s-era-481352.mp3');
-    sketchMusic.loop = true;
-    sketchMusic.volume = 0.4;
-
-    function playSketchMusic() {
-        sketchMusic.play().catch(err => {
-            console.log("Music play blocked on page load. Waiting for user interaction:", err);
-            const startOnInteraction = () => {
-                const activeRadio = document.querySelector('input[name="theme-choice"]:checked');
-                if (activeRadio && activeRadio.value === 'sketch') {
-                    sketchMusic.play().catch(e => console.log("Play failed: ", e));
-                }
-                window.removeEventListener('click', startOnInteraction);
-            };
-            window.addEventListener('click', startOnInteraction);
-        });
-    }
-
-    function stopSketchMusic() {
-        sketchMusic.pause();
-    }
-
     // Read saved theme or default to 'modern'
     const savedTheme = localStorage.getItem(STORAGE_KEY) || 'modern';
 
@@ -58,13 +35,6 @@
             if (heroImage) {
                 heroImage.src = 'images/adityPhoto111.jpeg';
             }
-        }
-
-        // Play music if Sketch theme is active, otherwise pause it
-        if (theme === 'sketch') {
-            playSketchMusic();
-        } else {
-            stopSketchMusic();
         }
 
         // Check the corresponding radio button
@@ -969,6 +939,301 @@ if (heroContent) {
         document.addEventListener('DOMContentLoaded', initGame);
     } else {
         initGame();
+    }
+})();
+
+// ===== RAVAN FOLK-ART UI INTERACTIVITY =====
+(function () {
+    const weaponData = {
+        trishul: {
+            title: "TRISHUL SPEAR",
+            domain: "Agentic AI & LangChain4j",
+            img: "images/SimpleAssets/weapons/trishul-spear.png",
+            text: "Primary weapon of autonomous intelligence. Expertise in orchestrating multi-agent workflows with LangChain4j and Spring AI. Implements function calling (LLM tool use), vector similarity search with Pinecone/ChromaDB, and resilient RAG pipelines."
+        },
+        khanda: {
+            title: "KHANDA SWORD",
+            domain: "Core Java & Spring Boot",
+            img: "images/SimpleAssets/weapons/khanda-sword.png",
+            text: "Unyielding blade of enterprise backend development. Built using Java 17, Spring Boot 3, Spring MVC, JPA/Hibernate, and RESTful microservice architectures engineered for high concurrency and clean code standards."
+        },
+        shield: {
+            title: "DHAL SHIELD",
+            domain: "Security & Rate Limiting",
+            img: "images/SimpleAssets/weapons/dhal-shield.png",
+            text: "Impenetrable defense layer. Features custom Spring Security configurations with stateless JWT authentication, distributed Redis Lua token-bucket rate limiters, and ACID database wallet ledgers preventing double-spending."
+        },
+        bow: {
+            title: "BOW OF AGNI",
+            domain: "React & Modern Web UI",
+            img: "images/SimpleAssets/weapons/bow-arrow-crossed.png",
+            text: "Precision long-range user interface development. Crafts responsive, highly engaging applications using React.js, Next.js, Tailwind CSS, SVG map integrations, and real-time STOMP WebSocket telemetry visualization."
+        },
+        axe: {
+            title: "PARASHU AXE",
+            domain: "Databases & Vector Search",
+            img: "images/SimpleAssets/weapons/parashu-axe.png",
+            text: "Cleaves through high-volume data structures. Proficient in relational (PostgreSQL, MySQL) and NoSQL databases (MongoDB, Redis), alongside vector embedding stores (Pinecone, ChromaDB) for semantic intelligence."
+        },
+        hammer: {
+            title: "WAR HAMMER",
+            domain: "DevOps & Infrastructure",
+            img: "images/SimpleAssets/weapons/war-hammer.png",
+            text: "Forges containerized environments and system health monitors. Deploys services with Docker, Kubernetes, Jenkins pipelines, and live system metrics telemetry with Prometheus & Grafana dashboards."
+        },
+        chakram: {
+            title: "SUDARSHANA CHAKRAM",
+            domain: "Real-Time Streaming & RAG",
+            img: "images/SimpleAssets/weapons/chakram.png",
+            text: "Swift, rotating wheel of real-time data streams. Built 3-tier external API failover engines (Binance → Bybit → MEXC) with circuit breakers and live WebSocket candlestick price updates."
+        },
+        katar: {
+            title: "KATAR DAGGER",
+            domain: "JUnit, Mockito & Testing",
+            img: "images/SimpleAssets/weapons/katar.png",
+            text: "Surgical precision in code validation. Executes rigorous unit and integration testing using JUnit, Mockito, Selenium browser automation, and Postman API suite verification."
+        }
+    };
+
+    function initRavanUI() {
+        const weaponCards = document.querySelectorAll('.ravan-weapon-card');
+        const modal = document.getElementById('ravan-weapon-modal');
+        const modalClose = document.getElementById('ravan-modal-close');
+        const modalImg = document.getElementById('ravan-modal-img');
+        const modalTitle = document.getElementById('ravan-modal-title');
+        const modalDomain = document.getElementById('ravan-modal-domain');
+        const modalBody = document.getElementById('ravan-modal-body');
+
+        if (!modal) return;
+
+        weaponCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const key = card.getAttribute('data-weapon');
+                const data = weaponData[key];
+                if (data) {
+                    modalImg.src = data.img;
+                    modalTitle.textContent = data.title;
+                    modalDomain.textContent = data.domain;
+                    modalBody.textContent = data.text;
+                    modal.classList.add('active');
+                }
+            });
+        });
+
+        if (modalClose) {
+            modalClose.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Form submission listener for Ravan UI contact form
+        const ravanForm = document.getElementById('ravan-contact-form');
+        if (ravanForm) {
+            ravanForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('⚡ Your scroll has been sent successfully to Aditya Kalburgi!');
+                ravanForm.reset();
+            });
+        }
+
+        // Pure BGM (Bhoomiya Rakshaka.mp3) Controller with Smooth Volume Fade-Out / Fade-In
+        const bgmPlayer = document.getElementById('ravan-bgm-player');
+        const bgmToggleBtn = document.getElementById('ravan-bgm-toggle');
+        if (bgmPlayer && bgmToggleBtn) {
+            let isUserEnabled = false;
+            let fadeInterval = null;
+
+            const fadeAudio = (targetVolume, duration = 1200, onComplete = null) => {
+                clearInterval(fadeInterval);
+                const startVolume = bgmPlayer.volume;
+                const stepCount = 30;
+                const stepTime = duration / stepCount;
+                const volumeChange = (targetVolume - startVolume) / stepCount;
+                let currentStep = 0;
+
+                fadeInterval = setInterval(() => {
+                    currentStep++;
+                    let newVol = bgmPlayer.volume + volumeChange;
+                    if (newVol > 1) newVol = 1;
+                    if (newVol < 0) newVol = 0;
+                    bgmPlayer.volume = newVol;
+
+                    if (currentStep >= stepCount) {
+                        clearInterval(fadeInterval);
+                        bgmPlayer.volume = targetVolume;
+                        if (onComplete) onComplete();
+                    }
+                }, stepTime);
+            };
+
+            const playWithFadeIn = () => {
+                bgmPlayer.volume = 0;
+                bgmPlayer.play().then(() => {
+                    bgmToggleBtn.classList.add('playing');
+                    fadeAudio(1, 1200);
+                }).catch(err => {
+                    console.log('Audio playback waiting for user interaction:', err);
+                });
+            };
+
+            const stopWithFadeOut = (pauseAfter = true, duration = 350) => {
+                fadeAudio(0, duration, () => {
+                    if (pauseAfter) {
+                        bgmPlayer.pause();
+                        bgmToggleBtn.classList.remove('playing');
+                    }
+                });
+            };
+
+            bgmToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isUserEnabled && !bgmPlayer.paused && bgmPlayer.volume > 0) {
+                    isUserEnabled = false;
+                    stopWithFadeOut(true);
+                } else {
+                    isUserEnabled = true;
+                    playWithFadeIn();
+                }
+            });
+
+            // Smooth Fade-Out when scrolling down past Nataraja divider, Smooth Fade-In when returning
+            const sectionDivider = document.querySelector('.nataraja-section-divider');
+            let isScrolledPast = false;
+
+            if (sectionDivider) {
+                window.addEventListener('scroll', () => {
+                    if (!isUserEnabled) return;
+
+                    const dividerRect = sectionDivider.getBoundingClientRect();
+                    const scrolledPastNow = dividerRect.top <= 50;
+
+                    if (scrolledPastNow && !isScrolledPast) {
+                        isScrolledPast = true;
+                        // Slowly fade out & pause when leaving Nataraja section
+                        stopWithFadeOut(true);
+                    } else if (!scrolledPastNow && isScrolledPast) {
+                        isScrolledPast = false;
+                        // Slowly fade in & resume when returning to Nataraja section
+                        playWithFadeIn();
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // Dark Mode Background Toggle for r2_c6.png Button
+        const darkToggleBtn = document.getElementById('ravan-dark-toggle-btn');
+        if (darkToggleBtn) {
+            darkToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.body.classList.toggle('ravan-dramatic-dark');
+            });
+        }
+
+        // Mandala Ring Smooth Fade-In / Fade-Out Toggle for r2_c4.png Button
+        const mandalaToggleBtn = document.getElementById('ravan-mandala-toggle-btn');
+        if (mandalaToggleBtn) {
+            mandalaToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const mandalas = document.querySelectorAll('.nataraja-layer-folk-mandala, .ravan-mandala-disc');
+                mandalas.forEach(m => {
+                    m.classList.toggle('ravan-hidden-fade');
+                });
+            });
+        }
+
+        // Shiva Avatar Swap Toggle for r2_c5.png Button
+        const shivaToggleBtn = document.getElementById('ravan-shiva-toggle-btn');
+        const natarajaCharImg = document.getElementById('nataraja-character-img');
+        if (shivaToggleBtn && natarajaCharImg) {
+            const originalSrc = 'images/SimpleAssets/nataraja-separated-elements/01-nataraja-character.png';
+            const shivaSrc = 'images/SimpleAssets/nataraja-separated-elements/Shiva_Nataraja_Transparent.png';
+
+            // Preload Shiva avatar
+            const preShiva = new Image();
+            preShiva.src = shivaSrc;
+
+            shivaToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                natarajaCharImg.classList.add('avatar-fade');
+                setTimeout(() => {
+                    if (natarajaCharImg.getAttribute('data-is-shiva') === 'true') {
+                        natarajaCharImg.src = originalSrc;
+                        natarajaCharImg.setAttribute('data-is-shiva', 'false');
+                        shivaToggleBtn.classList.remove('is-shiva');
+                    } else {
+                        natarajaCharImg.src = shivaSrc;
+                        natarajaCharImg.setAttribute('data-is-shiva', 'true');
+                        shivaToggleBtn.classList.add('is-shiva');
+                    }
+                    natarajaCharImg.classList.remove('avatar-fade');
+                }, 220);
+            });
+        }
+
+        // Interactive Bharatanatyam Dance Toggle for r2_c7.png Button
+        const danceToggleBtn = document.getElementById('ravan-dance-toggle-btn');
+        const dancerImg = document.getElementById('nataraja-dancer-img');
+        if (danceToggleBtn && dancerImg) {
+            const danceFrames = [
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/00-original-dance-pose.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/01-araimandi-natyarambha.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/02-anjali-samapada.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/03-natta-adavu.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/04-kuditta-mettu.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/05-alidha-lunge.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/06-mandi-kneeling-pose.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/07-tatta-adavu-preparation.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/08-visharu-diagonal-step.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/09-pushpaputa-offering.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/10-swastika-crossed-stance.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/11-utsanga-embrace.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/12-shikhara-archer.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/13-mayura-peacock-balance.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/14-bhramari-turning-pose.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/15-alapadma-blossom.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/16-korvai-finishing-pose.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/17-tribhanga-curve.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/18-kartarimukha-separation.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/19-kunchita-foot-stamp.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/20-garuda-wing-stance.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/21-gaja-hasta.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/22-chakra-turning-step.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/23-pataka-command.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/24-sarpashirsha-serpentine.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/25-veera-kneeling-lunge.png',
+                'images/SimpleAssets/nataraja-separated-elements/bharatanatyam-dance-steps/26-overhead-anjali-finish.png'
+            ];
+
+            // Preload all 27 frames for instant smooth animation
+            danceFrames.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            let currentFrameIndex = 0;
+
+            danceToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentFrameIndex = (currentFrameIndex + 1) % danceFrames.length;
+                dancerImg.src = danceFrames[currentFrameIndex];
+                
+                // Add quick visual click feedback animation
+                danceToggleBtn.classList.add('is-clicked');
+                setTimeout(() => danceToggleBtn.classList.remove('is-clicked'), 250);
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initRavanUI);
+    } else {
+        initRavanUI();
     }
 })();
 

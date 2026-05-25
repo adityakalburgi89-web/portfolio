@@ -569,17 +569,33 @@ body.ui-neo-brutalism .skills__category-title {
 body.ui-neo-brutalism .skills__grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 body.ui-neo-brutalism .skill__card {
     background-color: var(--bg-canvas);
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.4rem;
     border: var(--border-width) solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     text-align: center;
     transition: var(--transition-fast);
     cursor: default;
     box-shadow: 4px 4px 0px 0px var(--ink);
+    white-space: nowrap;
+}
+
+body.ui-neo-brutalism .skill__icon {
+    font-size: 1.6rem;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
 }
 
 body.ui-neo-brutalism .skill__card:hover {
@@ -588,10 +604,15 @@ body.ui-neo-brutalism .skill__card:hover {
     box-shadow: 8px 8px 0px 0px var(--ink);
 }
 
+body.ui-neo-brutalism .skill__card:hover .skill__icon {
+    transform: scale(1.2) rotate(-5deg);
+}
+
 body.ui-neo-brutalism .skill__name {
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 /* ===== Projects Section ===== */

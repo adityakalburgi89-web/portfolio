@@ -546,31 +546,52 @@ body.ui-modern .skills__category:nth-child(5) .skills__category-title::after {
 
 body.ui-modern .skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
     gap: 1rem;
 }
 
 body.ui-modern .skill__card {
     background-color: #ffffff;
-    padding: 0.8rem 1.2rem;
-    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     text-align: center;
     transition: var(--transition);
     border: 2px solid #000000;
     cursor: default;
+    white-space: nowrap;
+}
+
+body.ui-modern .skill__icon {
+    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
 }
 
 body.ui-modern .skill__card:hover {
     background-color: var(--primary-color);
     color: #ffffff;
-    transform: scale(1.06);
-    box-shadow: var(--shadow-sm);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.ui-modern .skill__card:hover .skill__icon {
+    transform: scale(1.15);
 }
 
 body.ui-modern .skill__name {
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 /* ===== Projects Section ===== */
