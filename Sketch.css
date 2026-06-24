@@ -1471,3 +1471,10 @@ body.ui-sketch .theme-switcher-container .shape-label {
     font-family: 'Patrick Hand', cursive;
     font-size: 10px;
 }
+
+/* --- Sketch Theme Project Video --- */
+body.ui-sketch .project__video-container {
+    border: var(--border);
+    border-radius: var(--wobbly-md);
+    box-shadow: var(--shadow-sm);
+}

@@ -992,3 +992,10 @@ body.ui-modern .fade-in.visible {
         padding: 1.25rem;
     }
 }
+
+/* --- Modern Theme Project Video --- */
+body.ui-modern .project__video-container {
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}

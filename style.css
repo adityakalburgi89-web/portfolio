@@ -164,3 +164,19 @@ body.ui-sketch .radio-group {
         height: 20px;
     }
 }
+
+/* --- Project Video (Shared Base) --- */
+.project__video-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    background: #000;
+    display: block;
+}
+
+.project__video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
