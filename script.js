@@ -331,7 +331,8 @@ if (heroContent) {
     const DINO_VIDEOS = [
         'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607041932.mp4',
         'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607042028 (1).mp4',
-        'images/video/Baby_dinosaur_combat_idle_202607042119 (1).mp4'
+        'images/video/Baby_dinosaur_combat_idle_202607042119 (1).mp4',
+        'images/video/Robot_dinosaur_idle_animation_202607042157 (1).mp4'
     ];
 
     // Unmute video to play music, and disable looping to play only once
