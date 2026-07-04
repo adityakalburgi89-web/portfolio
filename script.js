@@ -360,8 +360,8 @@ if (heroContent) {
         return next;
     }
 
-    // Unmute video to play music, and disable looping to play only once
-    video.muted = false;
+    // Mute video to play silently, and disable looping to play only once
+    video.muted = true;
     video.loop = false;
 
     // Automatically close decorator/pop back when video ends
