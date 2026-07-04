@@ -327,6 +327,13 @@ if (heroContent) {
     const video = document.getElementById('dino-raw-video');
     if (!video) return;
 
+    // Available dinosaur dancing videos
+    const DINO_VIDEOS = [
+        'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607041932.mp4',
+        'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607042028 (1).mp4',
+        'images/video/Baby_dinosaur_combat_idle_202607042119 (1).mp4'
+    ];
+
     // Unmute video to play music, and disable looping to play only once
     video.muted = false;
     video.loop = false;
@@ -394,6 +401,10 @@ if (heroContent) {
         let particles = [];
         let state = 'egg'; // 'egg', 'popping', 'dancing'
 
+        // Click-to-pop variables: requires 5 to 9 clicks to pop
+        let clicksRequired = Math.floor(Math.random() * 5) + 5;
+        let currentClicks = 0;
+
         function createExplosion() {
             particles = [];
             const centerX = canvas.width / 2;
@@ -405,6 +416,10 @@ if (heroContent) {
 
         function closeDecorator() {
             state = 'egg';
+            currentClicks = 0;
+            clicksRequired = Math.floor(Math.random() * 5) + 5; // new randomized requirement
+            if (bubble) bubble.textContent = "Pop me!!";
+            eggBtn.classList.remove('crack-shake');
             canvas.classList.add('hidden');
             canvas.classList.remove('pop-anim');
             eggBtn.classList.remove('hidden');
@@ -523,6 +538,28 @@ if (heroContent) {
                 activeDecorator.closeDecorator();
             }
 
+            currentClicks++;
+
+            if (currentClicks < clicksRequired) {
+                // Play shake animation by triggering reflow
+                eggBtn.classList.remove('crack-shake');
+                void eggBtn.offsetWidth; // trigger reflow
+                eggBtn.classList.add('crack-shake');
+
+                // Update speech bubble text to show cracking progress
+                const remaining = clicksRequired - currentClicks;
+                if (remaining >= 5) {
+                    bubble.textContent = "Click more!!";
+                } else if (remaining >= 3) {
+                    bubble.textContent = "Cracking...";
+                } else if (remaining >= 1) {
+                    bubble.textContent = "Almost!!";
+                }
+                return;
+            }
+
+            // Reset shake class and pop it!
+            eggBtn.classList.remove('crack-shake');
             eggBtn.classList.add('hidden');
             bubble.classList.add('hidden');
             canvas.classList.remove('hidden');
@@ -531,6 +568,11 @@ if (heroContent) {
             state = 'popping';
             activeDecorator = decorator;
             createExplosion();
+            
+            // Choose a random video and reset auto-sampling
+            const randomVideoSrc = DINO_VIDEOS[Math.floor(Math.random() * DINO_VIDEOS.length)];
+            video.src = randomVideoSrc;
+            hasSampledKeyColor = false;
             
             video.load();
             runLoop();
