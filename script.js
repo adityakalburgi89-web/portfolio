@@ -329,11 +329,36 @@ if (heroContent) {
 
     // Available dinosaur dancing videos
     const DINO_VIDEOS = [
-        'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607041932.mp4',
         'images/video/Pixel_art_dinosaur_dancing_Gangn…_202607042028 (1).mp4',
         'images/video/Baby_dinosaur_combat_idle_202607042119 (1).mp4',
-        'images/video/Robot_dinosaur_idle_animation_202607042157 (1).mp4'
+        'images/video/Robot_dinosaur_idle_animation_202607042157 (1).mp4',
+        'images/video/Pixel_art_dinosaur_scanning_motion_202607050030 (1).mp4',
+        'images/video/Ninja_dinosaur_running_pixel_art_202607050043 (1).mp4',
+        'images/video/Dinosaur_thinking_pixel_art_anim…_202607050051 (1).mp4'
     ];
+
+    // Playlist shuffler queue to avoid repetitive back-to-back playback of the same video
+    let videoQueue = [];
+    let lastPlayedVideo = null;
+
+    function getNextVideo() {
+        if (videoQueue.length === 0) {
+            let shuffled = [...DINO_VIDEOS];
+            // Fisher-Yates Shuffle
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            // Avoid back-to-back repeat of the last played video when refilling
+            if (shuffled.length > 1 && shuffled[0] === lastPlayedVideo) {
+                [shuffled[0], shuffled[shuffled.length - 1]] = [shuffled[shuffled.length - 1], shuffled[0]];
+            }
+            videoQueue = shuffled;
+        }
+        const next = videoQueue.shift();
+        lastPlayedVideo = next;
+        return next;
+    }
 
     // Unmute video to play music, and disable looping to play only once
     video.muted = false;
@@ -570,9 +595,8 @@ if (heroContent) {
             activeDecorator = decorator;
             createExplosion();
             
-            // Choose a random video and reset auto-sampling
-            const randomVideoSrc = DINO_VIDEOS[Math.floor(Math.random() * DINO_VIDEOS.length)];
-            video.src = randomVideoSrc;
+            // Get next video from shuffled playlist and reset auto-sampling
+            video.src = getNextVideo();
             hasSampledKeyColor = false;
             
             video.load();
