@@ -60,7 +60,7 @@ body.ui-modern .container {
 body.ui-modern .header,
 body.ui-modern .section,
 body.ui-modern .footer {
-    max-width: 960px;
+    max-width: min(calc(90% + 96px), 98%);
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
