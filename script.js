@@ -327,6 +327,17 @@ if (heroContent) {
     const video = document.getElementById('dino-raw-video');
     if (!video) return;
 
+    // Unmute video to play music, and disable looping to play only once
+    video.muted = false;
+    video.loop = false;
+
+    // Automatically close decorator/pop back when video ends
+    video.addEventListener('ended', () => {
+        if (activeDecorator) {
+            activeDecorator.closeDecorator();
+        }
+    });
+
     const decorators = document.querySelectorAll('.dino-egg-decorator');
     if (decorators.length === 0) return;
 
