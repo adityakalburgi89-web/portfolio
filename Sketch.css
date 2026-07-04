@@ -1478,3 +1478,34 @@ body.ui-sketch .project__video-container {
     border-radius: var(--wobbly-md);
     box-shadow: var(--shadow-sm);
 }
+
+/* ==========================================================
+   SKETCH THEME WIDGET OVERRIDES
+   ========================================================== */
+body.ui-sketch .dino-bubble {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    background-color: var(--postit);
+    border: var(--border);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--wobbly-sm);
+}
+
+body.ui-sketch .dino-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--postit);
+    border-right: var(--border-width) solid var(--ink);
+    border-bottom: var(--border-width) solid var(--ink);
+    z-index: 103;
+    border-radius: 0;
+}
+

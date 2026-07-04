@@ -1198,3 +1198,41 @@ body.ui-modern .fade-in.visible {
         gap: 1rem;
     }
 }
+
+/* ==========================================================
+   Y2K MODERN RETRO THEME WIDGET OVERRIDES
+   ========================================================== */
+/* Hide the static Y2K flower/circle background pseudo-decorations */
+body.ui-modern .hero::before,
+body.ui-modern .hero__container::before {
+    display: none !important;
+}
+
+/* Position and display the interactive decorators in Modern theme */
+body.ui-modern .dino-egg-decorator {
+    display: block;
+}
+
+body.ui-modern .dino-bubble {
+    font-family: var(--font-pixel);
+    font-size: 11px;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    border: 3px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    border-radius: 4px;
+}
+
+body.ui-modern .dino-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--bg-white);
+    border-right: 3px solid var(--border-color);
+    border-bottom: 3px solid var(--border-color);
+    z-index: 103;
+}

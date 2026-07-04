@@ -100,7 +100,30 @@
 
     <!-- Hero Section -->
     <section class="hero section" id="home">
-        <div class="hero__container container">
+        <!-- Interactive Dino Decorator (Bottom-Left) -->
+        <div class="dino-egg-decorator decorator-left">
+            <div class="dino-bubble">Pop me!!</div>
+            <button class="dino-egg-btn" aria-label="Pop the dinosaur egg">
+                <svg class="dino-egg-svg" viewBox="0 0 24 24" fill="none" stroke="#38b000" stroke-width="1.5" stroke-linecap="square" shape-rendering="crispEdges">
+                    <path d="M9 2h6v2H9zM6 4h3v2H6zM15 4h3v2h-3zM4 6h2v3H4zM18 6h2v3h-2zM2 9h2v6H2zM20 9h2v6h-2zM4 15h2v3H4zM18 15h2v3h-2zM6 18h3v2H6zM15 18h3v2h-3zM9 20h6v2H9z" />
+                    <path d="M11 10h2v4h-2z" fill="#38b000" stroke="none" />
+                </svg>
+            </button>
+            <canvas class="dino-canvas hidden" width="120" height="120"></canvas>
+        </div>
+
+        <div class="hero__container container" style="position: relative;">
+            <!-- Interactive Dino Decorator (Top-Right) -->
+            <div class="dino-egg-decorator decorator-right">
+                <div class="dino-bubble">Pop me!!</div>
+                <button class="dino-egg-btn" aria-label="Pop the dinosaur egg">
+                    <svg class="dino-egg-svg" viewBox="0 0 24 24" fill="none" stroke="#38b000" stroke-width="1.5" stroke-linecap="square" shape-rendering="crispEdges">
+                        <path d="M9 2h6v2H9zM6 4h3v2H6zM15 4h3v2h-3zM4 6h2v3H4zM18 6h2v3h-2zM2 9h2v6H2zM20 9h2v6h-2zM4 15h2v3H4zM18 15h2v3h-2zM6 18h3v2H6zM15 18h3v2h-3zM9 20h6v2H9z" />
+                        <path d="M11 10h2v4h-2z" fill="#38b000" stroke="none" />
+                    </svg>
+                </button>
+                <canvas class="dino-canvas hidden" width="100" height="100"></canvas>
+            </div>
             <div class="hero__content">
                 <div class="hero__image-wrapper">
                     <img src="images/adityPhoto111.jpeg" alt="Aditya Kalburgi" class="hero__image">
@@ -565,7 +588,11 @@
             </div>
     </footer>
 
+    <!-- Hidden Video Element for Dino Decorator Widget -->
+    <video id="dino-raw-video" class="hidden" loop muted playsinline crossorigin="anonymous">
+        <source src="images/video/Pixel_art_dinosaur_dancing_Gangn…_202607041932.mp4" type="video/mp4">
+    </video>
+
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -179,4 +179,140 @@ body.ui-sketch .radio-group {
     width: 100%;
     height: auto;
     display: block;
-}
+}
+
+/* ==========================================================
+   INTERACTIVE DECORATOR DINOSAUR WIDGET (BASE STYLES)
+   ========================================================== */
+.dino-egg-decorator {
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.decorator-left {
+    bottom: 40px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+}
+
+.decorator-right {
+    top: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+/* Speech Bubble / Tooltip */
+.dino-bubble {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 102;
+    animation: dino-bubble-float 2.5s ease-in-out infinite alternate;
+}
+
+/* Float Animation for Bubble */
+@keyframes dino-bubble-float {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* The Egg Button */
+.dino-egg-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dino-egg-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dino-egg-btn:active {
+    transform: scale(0.9);
+}
+
+.dino-egg-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Transparent Canvas Overlay */
+.dino-canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    cursor: pointer;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.dino-canvas.pop-anim {
+    animation: dino-pop-reveal 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes dino-pop-reveal {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hidden Utility class */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .decorator-left {
+        bottom: 20px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+    }
+    .decorator-right {
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+

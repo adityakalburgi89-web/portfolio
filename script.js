@@ -322,3 +322,205 @@ if (heroContent) {
     heroContent.classList.add('fade-in', 'visible');
 }
 
+// ===== Floating Dinosaur Decorators with Auto-Chroma Keying =====
+(function () {
+    const video = document.getElementById('dino-raw-video');
+    if (!video) return;
+
+    const decorators = document.querySelectorAll('.dino-egg-decorator');
+    if (decorators.length === 0) return;
+
+    let activeLoopId = null;
+    let activeDecorator = null; // currently active popped decorator
+
+    const offscreenCanvas = document.createElement('canvas');
+    const offscreenCtx = offscreenCanvas.getContext('2d', { willReadFrequently: true });
+
+    // Chroma key default and auto-sampling state
+    let keyR = 0;
+    let keyG = 255;
+    let keyB = 0;
+    let hasSampledKeyColor = false;
+
+    // Particle class for retro pixelated explosion
+    class PixelParticle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 4 + 2;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed - 1.5; // upward bias
+            this.size = Math.floor(Math.random() * 4) + 2; // 2px to 5px
+            this.alpha = 1;
+            this.decay = Math.random() * 0.025 + 0.015;
+            // Green or white colors to match the egg
+            this.color = Math.random() > 0.4 ? '#5ebd3e' : '#ffffff';
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy += 0.15; // gravity
+            this.alpha -= this.decay;
+        }
+
+        draw(context) {
+            context.save();
+            context.globalAlpha = Math.max(0, this.alpha);
+            context.fillStyle = this.color;
+            context.fillRect(Math.round(this.x), Math.round(this.y), this.size, this.size);
+            context.restore();
+        }
+    }
+
+    decorators.forEach(decorator => {
+        const eggBtn = decorator.querySelector('.dino-egg-btn');
+        const bubble = decorator.querySelector('.dino-bubble');
+        const canvas = decorator.querySelector('.dino-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let state = 'egg'; // 'egg', 'popping', 'dancing'
+
+        function createExplosion() {
+            particles = [];
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            for (let i = 0; i < 40; i++) {
+                particles.push(new PixelParticle(centerX, centerY));
+            }
+        }
+
+        function closeDecorator() {
+            state = 'egg';
+            canvas.classList.add('hidden');
+            canvas.classList.remove('pop-anim');
+            eggBtn.classList.remove('hidden');
+            bubble.classList.remove('hidden');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (activeDecorator === decorator) {
+                if (activeLoopId) {
+                    cancelAnimationFrame(activeLoopId);
+                    activeLoopId = null;
+                }
+                video.pause();
+                activeDecorator = null;
+                hasSampledKeyColor = false;
+            }
+        }
+
+        function runLoop() {
+            if (state === 'popping') {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                let activeParticles = 0;
+                particles.forEach(p => {
+                    p.update();
+                    if (p.alpha > 0) {
+                        p.draw(ctx);
+                        activeParticles++;
+                    }
+                });
+
+                if (activeParticles === 0) {
+                    state = 'dancing';
+                    video.play().catch(err => {
+                        console.log("Dino video play failed: ", err);
+                    });
+                }
+                activeLoopId = requestAnimationFrame(runLoop);
+            } else if (state === 'dancing') {
+                if (video.paused || video.ended) {
+                    activeLoopId = requestAnimationFrame(runLoop);
+                    return;
+                }
+
+                const w = canvas.width;
+                const h = canvas.height;
+
+                // Ensure offscreen size matches video dimensions
+                if (offscreenCanvas.width !== video.videoWidth || offscreenCanvas.height !== video.videoHeight) {
+                    offscreenCanvas.width = video.videoWidth || 300;
+                    offscreenCanvas.height = video.videoHeight || 300;
+                }
+
+                // Draw video to offscreen
+                offscreenCtx.drawImage(video, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
+
+                // Auto-sample key color
+                if (!hasSampledKeyColor && video.videoWidth > 0) {
+                    const cornerPixel = offscreenCtx.getImageData(0, 0, 1, 1).data;
+                    const pr = cornerPixel[0];
+                    const pg = cornerPixel[1];
+                    const pb = cornerPixel[2];
+                    if (pg > 80 && pg > pr && pg > pb) {
+                        keyR = pr;
+                        keyG = pg;
+                        keyB = pb;
+                        hasSampledKeyColor = true;
+                    }
+                }
+
+                const imgData = offscreenCtx.getImageData(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+                const data = imgData.data;
+
+                // Remove green background
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i+1];
+                    const b = data[i+2];
+
+                    const dist = Math.sqrt(
+                        Math.pow(r - keyR, 2) +
+                        Math.pow(g - keyG, 2) +
+                        Math.pow(b - keyB, 2)
+                    );
+
+                    if (dist < 85) {
+                        data[i+3] = 0;
+                    }
+                }
+
+                offscreenCtx.putImageData(imgData, 0, 0);
+
+                // Draw to onscreen canvas
+                ctx.clearRect(0, 0, w, h);
+                ctx.drawImage(offscreenCanvas, 0, 0, w, h);
+
+                activeLoopId = requestAnimationFrame(runLoop);
+            }
+        }
+
+        eggBtn.addEventListener('click', () => {
+            // Close any active decorator first
+            if (activeDecorator && activeDecorator !== decorator) {
+                activeDecorator.closeDecorator();
+            }
+
+            eggBtn.classList.add('hidden');
+            bubble.classList.add('hidden');
+            canvas.classList.remove('hidden');
+            canvas.classList.add('pop-anim');
+
+            state = 'popping';
+            activeDecorator = decorator;
+            createExplosion();
+            
+            video.load();
+            runLoop();
+        });
+
+        // Click the canvas to pop back to egg
+        canvas.addEventListener('click', () => {
+            closeDecorator();
+        });
+
+        // Expose closeDecorator method on the element
+        decorator.closeDecorator = closeDecorator;
+    });
+})();
+
+
+

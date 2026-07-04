@@ -1188,3 +1188,33 @@ body.ui-neo-brutalism .project__video-container {
     box-shadow: 6px 6px 0px 0px var(--ink);
     border-radius: 0;
 }
+
+/* ==========================================================
+   NEO-BRUTALISM THEME WIDGET OVERRIDES
+   ========================================================== */
+body.ui-neo-brutalism .dino-bubble {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    background-color: var(--neo-secondary);
+    border: var(--border-width) solid var(--ink);
+    box-shadow: var(--shadow-sm);
+    border-radius: 0 !important;
+}
+
+body.ui-neo-brutalism .dino-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--neo-secondary);
+    border-right: var(--border-width) solid var(--ink);
+    border-bottom: var(--border-width) solid var(--ink);
+    z-index: 103;
+    border-radius: 0 !important;
+}
+
