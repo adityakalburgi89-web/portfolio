@@ -448,6 +448,19 @@ if (heroContent) {
                     return;
                 }
 
+                // Dynamically adjust canvas dimensions to match the video's actual aspect ratio without squeezing
+                if (video.videoWidth > 0 && video.videoHeight > 0) {
+                    const targetHeight = decorator.classList.contains('decorator-left') ? 160 : 120;
+                    const videoRatio = video.videoWidth / video.videoHeight;
+                    const newHeight = targetHeight;
+                    const newWidth = Math.round(targetHeight * videoRatio);
+
+                    if (canvas.width !== newWidth || canvas.height !== newHeight) {
+                        canvas.width = newWidth;
+                        canvas.height = newHeight;
+                    }
+                }
+
                 const w = canvas.width;
                 const h = canvas.height;
 
