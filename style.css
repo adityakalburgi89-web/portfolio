@@ -230,6 +230,7 @@ body.ui-sketch .radio-group {
     0% {
         transform: translateX(-50%) translateY(0);
     }
+
     100% {
         transform: translateX(-50%) translateY(-5px);
     }
@@ -264,11 +265,25 @@ body.ui-sketch .radio-group {
 }
 
 @keyframes dino-egg-crack {
-    0% { transform: scale(1.1) rotate(0deg); }
-    20% { transform: scale(1.05) rotate(-10deg); }
-    50% { transform: scale(1.05) rotate(10deg); }
-    80% { transform: scale(1.05) rotate(-5deg); }
-    100% { transform: scale(1.1) rotate(0deg); }
+    0% {
+        transform: scale(1.1) rotate(0deg);
+    }
+
+    20% {
+        transform: scale(1.05) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(10deg);
+    }
+
+    80% {
+        transform: scale(1.05) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1.1) rotate(0deg);
+    }
 }
 
 .dino-egg-svg {
@@ -300,6 +315,7 @@ body.ui-sketch .radio-group {
         transform: translate(-50%, -50%) scale(0);
         opacity: 0;
     }
+
     100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
@@ -319,6 +335,7 @@ body.ui-sketch .radio-group {
         width: 60px;
         height: 60px;
     }
+
     .decorator-right {
         top: 20px;
         right: 20px;
@@ -326,5 +343,3 @@ body.ui-sketch .radio-group {
         height: 45px;
     }
 }
-
-

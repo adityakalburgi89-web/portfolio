@@ -341,6 +341,10 @@ if (heroContent) {
     let videoQueue = [];
     let lastPlayedVideo = null;
 
+    // Preload audio sound effect for egg cracking interaction
+    const crackSound = new Audio('images/Sounds/Cracking.mp3');
+    crackSound.preload = 'auto';
+
     function getNextVideo() {
         if (videoQueue.length === 0) {
             let shuffled = [...DINO_VIDEOS];
@@ -430,6 +434,7 @@ if (heroContent) {
         // Click-to-pop variables: requires 5 to 9 clicks to pop
         let clicksRequired = Math.floor(Math.random() * 5) + 5;
         let currentClicks = 0;
+        let lastClickTime = 0;
 
         function createExplosion() {
             particles = [];
@@ -443,6 +448,7 @@ if (heroContent) {
         function closeDecorator() {
             state = 'egg';
             currentClicks = 0;
+            lastClickTime = 0;
             clicksRequired = Math.floor(Math.random() * 5) + 5; // new randomized requirement
             if (bubble) bubble.textContent = "Pop me!!";
             eggBtn.classList.remove('crack-shake');
@@ -452,6 +458,9 @@ if (heroContent) {
             bubble.classList.remove('hidden');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
+            // Hide the decorator element permanently (vanish) - will not pop again!
+            decorator.classList.remove('visible');
+
             if (activeDecorator === decorator) {
                 if (activeLoopId) {
                     cancelAnimationFrame(activeLoopId);
@@ -559,6 +568,16 @@ if (heroContent) {
         }
 
         eggBtn.addEventListener('click', () => {
+            const now = Date.now();
+            if (now - lastClickTime < 300) {
+                return; // Throttle clicks faster than 300ms
+            }
+            lastClickTime = now;
+
+            // Play cracking sound effect with low latency
+            crackSound.currentTime = 0;
+            crackSound.play().catch(err => console.log('Audio playback failed:', err));
+
             // Close any active decorator first
             if (activeDecorator && activeDecorator !== decorator) {
                 activeDecorator.closeDecorator();
@@ -603,10 +622,7 @@ if (heroContent) {
             runLoop();
         });
 
-        // Click the canvas to pop back to egg
-        canvas.addEventListener('click', () => {
-            closeDecorator();
-        });
+
 
         // Expose closeDecorator method on the element
         decorator.closeDecorator = closeDecorator;
