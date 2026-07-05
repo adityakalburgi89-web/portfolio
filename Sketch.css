@@ -319,6 +319,7 @@ body.ui-sketch .hero__image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -260px;
 }
 
 body.ui-sketch .hero__image {
@@ -1508,4 +1509,3 @@ body.ui-sketch .dino-bubble::after {
     z-index: 103;
     border-radius: 0;
 }
-

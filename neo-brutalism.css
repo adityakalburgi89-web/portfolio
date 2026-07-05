@@ -286,6 +286,7 @@ body.ui-neo-brutalism .hero__content {
 body.ui-neo-brutalism .hero__image-wrapper {
     position: relative;
     padding: 20px;
+    margin-top: -350px;
 }
 
 body.ui-neo-brutalism .hero__image {
@@ -1217,4 +1218,3 @@ body.ui-neo-brutalism .dino-bubble::after {
     z-index: 103;
     border-radius: 0 !important;
 }
-
