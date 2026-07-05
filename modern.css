@@ -1193,7 +1193,7 @@ body.ui-modern .hero__container::before {
 
 /* Position and display the interactive decorators in Modern theme */
 body.ui-modern .dino-egg-decorator {
-    display: block;
+    display: flex;
 }
 
 body.ui-modern .dino-bubble {
