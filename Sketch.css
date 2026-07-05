@@ -319,7 +319,7 @@ body.ui-sketch .hero__image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -260px;
+    margin-top: -20px;
 }
 
 body.ui-sketch .hero__image {
@@ -1277,6 +1277,17 @@ body.ui-sketch .footer__link:hover::after {
     body.ui-sketch .hero__image {
         width: 200px;
         height: 200px;
+    }
+
+    body.ui-sketch .hero__image-wrapper {
+        margin-top: 0;
+    }
+
+    body.ui-sketch .hero__social {
+        position: static;
+        margin-top: 1.5rem;
+        justify-content: center;
+        transform: none;
     }
 
     body.ui-sketch .hero__image-wrapper::before {
