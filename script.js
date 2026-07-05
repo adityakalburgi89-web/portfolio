@@ -446,21 +446,7 @@ if (heroContent) {
         }
 
         function closeDecorator() {
-            state = 'egg';
-            currentClicks = 0;
-            lastClickTime = 0;
-            clicksRequired = Math.floor(Math.random() * 5) + 5; // new randomized requirement
-            if (bubble) bubble.textContent = "Pop me!!";
-            eggBtn.classList.remove('crack-shake');
-            canvas.classList.add('hidden');
-            canvas.classList.remove('pop-anim');
-            eggBtn.classList.remove('hidden');
-            bubble.classList.remove('hidden');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Hide the decorator element permanently (vanish) - will not pop again!
-            decorator.classList.remove('visible');
-
+            // Immediately stop loop, pause video, and clean up active decorator
             if (activeDecorator === decorator) {
                 if (activeLoopId) {
                     cancelAnimationFrame(activeLoopId);
@@ -470,6 +456,34 @@ if (heroContent) {
                 activeDecorator = null;
                 hasSampledKeyColor = false;
             }
+
+            // Clear and hide canvas
+            canvas.classList.add('hidden');
+            canvas.classList.remove('pop-anim');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Hide the decorator element (vanish) immediately.
+            // Note: We do NOT make the egg button or bubble visible yet, so they don't flash on screen.
+            decorator.classList.remove('visible');
+
+            // Respawn this specific decorator after 10 seconds
+            setTimeout(() => {
+                // Reset state variables to fresh egg
+                state = 'egg';
+                currentClicks = 0;
+                lastClickTime = 0;
+                clicksRequired = Math.floor(Math.random() * 5) + 5;
+                
+                if (bubble) bubble.textContent = "Pop me!!";
+                eggBtn.classList.remove('crack-shake');
+                
+                // Show the egg button and bubble inside the container
+                eggBtn.classList.remove('hidden');
+                bubble.classList.remove('hidden');
+                
+                // Fade in and drop down the decorator container
+                decorator.classList.add('visible');
+            }, 10000);
         }
 
         function runLoop() {
