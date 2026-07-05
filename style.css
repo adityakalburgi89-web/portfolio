@@ -353,3 +353,115 @@ body.ui-sketch .radio-group {
         height: 45px;
     }
 }
+
+/* ===== Base Creatives Layout (Shared) ===== */
+.creatives__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.brutalist-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 2 / 3;
+    position: relative;
+    overflow: hidden;
+}
+
+.brutalist-card__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.brutalist-card__title {
+    margin: 0;
+}
+
+.brutalist-card__subtitle {
+    margin-top: 4px;
+}
+
+.brutalist-card__content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 15px 0;
+    min-height: 160px;
+}
+
+.brutalist-card__illustration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brutalist-card__illustration svg {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: visible;
+}
+
+.brutalist-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.brutalist-card__author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brutalist-card__author-logo {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brutalist-card__author-logo svg {
+    width: 14px;
+    height: 14px;
+}
+
+.brutalist-card__author-name {
+    font-size: 0.75rem;
+}
+
+.brutalist-card__icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brutalist-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 968px) {
+    .creatives__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .creatives__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

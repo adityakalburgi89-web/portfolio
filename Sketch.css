@@ -1520,3 +1520,69 @@ body.ui-sketch .dino-bubble::after {
     z-index: 103;
     border-radius: 0;
 }
+
+/* ===== Hand-Drawn Sketch Theme Card Overrides ===== */
+body.ui-sketch .creatives {
+    background-color: var(--bg-paper);
+}
+
+body.ui-sketch .brutalist-card {
+    border: var(--border) !important;
+    border-radius: var(--wobbly-md) !important;
+    box-shadow: var(--shadow-sm);
+    background-color: var(--white);
+    transition: var(--transition-base);
+    font-family: 'Patrick Hand', cursive !important;
+    padding: 20px;
+}
+
+body.ui-sketch .brutalist-card:hover {
+    transform: translateY(-4px) rotate(1deg);
+    box-shadow: var(--shadow-md);
+}
+
+body.ui-sketch .brutalist-card__title {
+    font-family: 'Kalam', cursive !important;
+    font-size: 2rem !important;
+    color: var(--secondary) !important;
+    -webkit-text-stroke: 0px transparent !important;
+    font-weight: 700;
+}
+
+body.ui-sketch .brutalist-card__subtitle {
+    font-size: 1.1rem !important;
+    color: var(--ink);
+    opacity: 0.8;
+}
+
+body.ui-sketch .brutalist-card__content {
+    background-color: var(--bg-paper) !important;
+    border: 2px dashed var(--ink) !important;
+    border-radius: var(--wobbly-sm) !important;
+    min-height: 150px;
+}
+
+body.ui-sketch .brutalist-card__footer {
+    border-top: 2px dashed var(--ink) !important;
+    padding-top: 10px;
+}
+
+body.ui-sketch .brutalist-card__author-logo {
+    background-color: var(--secondary);
+    border: 2px solid var(--ink);
+}
+
+body.ui-sketch .brutalist-card__author-name {
+    font-size: 0.85rem;
+}
+
+/* Modifiers to give sketchy colored overlays */
+body.ui-sketch .card--broco { --white: #e1f5fe !important; }
+body.ui-sketch .card--tonot { --white: #e8eaf6 !important; }
+body.ui-sketch .card--bochill { --white: #ffffff !important; }
+body.ui-sketch .card--bredo { --white: #e3f2fd !important; }
+body.ui-sketch .card--kocheng { --white: #fbe9e7 !important; }
+body.ui-sketch .card--yo { --white: #eceff1 !important; }
+body.ui-sketch .card--ded { --white: #fff8e1 !important; }
+body.ui-sketch .card--wuhu { --white: #f3e5f5 !important; }
+body.ui-sketch .card--drino { --white: #fffde7 !important; }

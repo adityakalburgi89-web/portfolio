@@ -31,8 +31,8 @@ body.ui-neo-brutalism {
     background-attachment: fixed;
 }
 
-/* Force sharp corners in Neo-brutalism */
-body.ui-neo-brutalism *:not(.ui-toggle):not(.ui-toggle *) {
+/* Force sharp corners in Neo-brutalism, except for brutalist cards and their children */
+body.ui-neo-brutalism *:not(.ui-toggle):not(.ui-toggle *):not(.brutalist-card):not(.brutalist-card *):not(.project__card):not(.project__card *):not(.skills__category):not(.skills__category *):not(.experience__item):not(.experience__item *) {
     border-radius: 0 !important;
 }
 
@@ -1229,3 +1229,419 @@ body.ui-neo-brutalism .dino-bubble::after {
     z-index: 103;
     border-radius: 0 !important;
 }
+
+/* ==========================================================
+   BRUTALIST CHARACTER CARDS (ROUNDED & THICK BORDERS)
+   ========================================================== */
+
+/* Utility & Card Base */
+body.ui-neo-brutalism .brutalist-card {
+    border: 6px solid var(--ink) !important;
+    border-radius: 24px !important;
+    background-color: var(--card-bg, var(--white));
+    color: var(--ink);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 2 / 3;
+    position: relative;
+    box-shadow: 8px 8px 0px 0px var(--ink);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    overflow: hidden;
+    user-select: none;
+}
+
+body.ui-neo-brutalism .brutalist-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 14px 14px 0px 0px var(--ink);
+}
+
+/* Card Header */
+body.ui-neo-brutalism .brutalist-card__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+body.ui-neo-brutalism .brutalist-card__title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    color: inherit;
+    -webkit-text-stroke: 1px var(--ink);
+}
+
+body.ui-neo-brutalism .brutalist-card__subtitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: none;
+    margin-top: 4px;
+    opacity: 0.95;
+    letter-spacing: 0.02em;
+}
+
+/* Card Content / Illustration */
+body.ui-neo-brutalism .brutalist-card__content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 15px 0;
+    min-height: 160px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px dashed var(--ink);
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+body.ui-neo-brutalism .brutalist-card__illustration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.ui-neo-brutalism .brutalist-card__illustration svg {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: visible;
+}
+
+/* Card Footer */
+body.ui-neo-brutalism .brutalist-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 3px dashed var(--ink);
+}
+
+body.ui-neo-brutalism .brutalist-card__author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.ui-neo-brutalism .brutalist-card__author-logo {
+    width: 24px;
+    height: 24px;
+    background: var(--ink);
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ink);
+}
+
+body.ui-neo-brutalism .brutalist-card__author-logo svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--white);
+}
+
+body.ui-neo-brutalism .brutalist-card__author-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: -0.01em;
+}
+
+body.ui-neo-brutalism .brutalist-card__icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.ui-neo-brutalism .brutalist-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Card Themes (Color Modifiers matching the user's palette) */
+body.ui-neo-brutalism .card--broco {
+    --card-bg: #4ea8a8;
+    color: #000000;
+}
+body.ui-neo-brutalism .card--tonot {
+    --card-bg: #0e3860;
+    color: #ffffff;
+}
+body.ui-neo-brutalism .card--tonot .brutalist-card__author-logo {
+    background: #ffffff;
+}
+body.ui-neo-brutalism .card--tonot .brutalist-card__author-logo svg {
+    fill: #0e3860;
+}
+body.ui-neo-brutalism .card--tonot .brutalist-card__footer {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+body.ui-neo-brutalism .card--tonot .brutalist-card__content {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+body.ui-neo-brutalism .card--bochill {
+    --card-bg: #ffffff;
+    color: #000000;
+}
+body.ui-neo-brutalism .card--bredo {
+    --card-bg: #0f71b3;
+    color: #ffffff;
+}
+body.ui-neo-brutalism .card--bredo .brutalist-card__author-logo {
+    background: #ffffff;
+}
+body.ui-neo-brutalism .card--bredo .brutalist-card__author-logo svg {
+    fill: #0f71b3;
+}
+body.ui-neo-brutalism .card--bredo .brutalist-card__footer {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+body.ui-neo-brutalism .card--bredo .brutalist-card__content {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+body.ui-neo-brutalism .card--kocheng {
+    --card-bg: #df5538;
+    color: #000000;
+}
+body.ui-neo-brutalism .card--yo {
+    --card-bg: #7f7f7f;
+    color: #ffffff;
+}
+body.ui-neo-brutalism .card--yo .brutalist-card__author-logo {
+    background: #ffffff;
+}
+body.ui-neo-brutalism .card--yo .brutalist-card__author-logo svg {
+    fill: #7f7f7f;
+}
+body.ui-neo-brutalism .card--yo .brutalist-card__footer {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+body.ui-neo-brutalism .card--yo .brutalist-card__content {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+body.ui-neo-brutalism .card--ded {
+    --card-bg: #e4b795;
+    color: #000000;
+}
+body.ui-neo-brutalism .card--wuhu {
+    --card-bg: #6a2745;
+    color: #ffffff;
+}
+body.ui-neo-brutalism .card--wuhu .brutalist-card__author-logo {
+    background: #ffffff;
+}
+body.ui-neo-brutalism .card--wuhu .brutalist-card__author-logo svg {
+    fill: #6a2745;
+}
+body.ui-neo-brutalism .card--wuhu .brutalist-card__footer {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+body.ui-neo-brutalism .card--wuhu .brutalist-card__content {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+body.ui-neo-brutalism .card--drino {
+    --card-bg: #e5b323;
+    color: #000000;
+}
+
+/* ==========================================================
+   CREATIVES SECTION GRID & LAYOUT
+   ========================================================== */
+body.ui-neo-brutalism .creatives {
+    background-color: var(--neo-muted);
+}
+
+body.ui-neo-brutalism .creatives__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 968px) {
+    body.ui-neo-brutalism .creatives__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+@media screen and (max-width: 600px) {
+    body.ui-neo-brutalism .creatives__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* ==========================================================
+   ALIGNING EXISTING CARDS TO ROUNDED BRUTALIST STYLE
+   ========================================================== */
+body.ui-neo-brutalism .project__card {
+    border: 6px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 12px 12px 0px 0px var(--ink) !important;
+    overflow: visible;
+}
+
+body.ui-neo-brutalism .project__card:hover {
+    transform: translate(-4px, -4px) rotate(0.5deg);
+    box-shadow: 16px 16px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .project__title {
+    border: 5px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 5px 5px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .project__description {
+    border: 4px solid var(--ink) !important;
+    border-radius: 16px !important;
+}
+
+body.ui-neo-brutalism .project__video-container {
+    border: 4px solid var(--ink) !important;
+    border-radius: 16px !important;
+    box-shadow: 6px 6px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .project__link {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .project__detail-item strong {
+    border-radius: 6px !important;
+    border: 2px solid var(--ink) !important;
+}
+
+body.ui-neo-brutalism .skills__category {
+    border: 6px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 12px 12px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .skills__category:hover {
+    transform: translate(-4px, -4px) rotate(0deg);
+    box-shadow: 16px 16px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .skills__category-title {
+    border: 5px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 5px 5px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .skill__card {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .experience__item {
+    border: 6px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 12px 12px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .experience__item:hover {
+    transform: translate(-4px, -4px) rotate(-0.5deg);
+    box-shadow: 16px 16px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .experience__section-title {
+    border: 5px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 5px 5px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .experience__period {
+    border-radius: 6px !important;
+    border: 2px solid var(--ink) !important;
+}
+
+body.ui-neo-brutalism .contact__link {
+    border: 4px solid var(--ink) !important;
+    border-radius: 16px !important;
+    box-shadow: 6px 6px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .contact__form {
+    border: 6px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 12px 12px 0px 0px var(--ink) !important;
+}
+
+body.ui-neo-brutalism .form__input {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+}
+
+body.ui-neo-brutalism .btn {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 0px 0px var(--ink) !important;
+}
+body.ui-neo-brutalism .nav__brand {
+    border: 3px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 0px 0px var(--ink) !important;
+}
+body.ui-neo-brutalism .nav__image {
+    border-radius: 8px !important;
+    border: 2px solid var(--ink) !important;
+}
+body.ui-neo-brutalism .hero__image {
+    border: 5px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 16px 16px 0px 0px var(--neo-accent), 16px 16px 0px 5px var(--ink) !important;
+}
+body.ui-neo-brutalism .hero__social-link {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+    box-shadow: 4px 4px 0px 0px var(--ink) !important;
+}
+body.ui-neo-brutalism .hero__subtitle {
+    border: 4px solid var(--ink) !important;
+    border-radius: 12px !important;
+}
+body.ui-neo-brutalism .hero__description {
+    border: 5px solid var(--ink) !important;
+    border-radius: 20px !important;
+    box-shadow: 10px 10px 0px 0px var(--neo-muted) !important;
+}
+body.ui-neo-brutalism .about__content {
+    border: 5px solid var(--ink) !important;
+    border-radius: 24px !important;
+    box-shadow: 12px 12px 0px 0px var(--ink) !important;
+}
+body.ui-neo-brutalism .about__paragraph strong {
+    border-radius: 6px !important;
+    border: 2px solid var(--ink) !important;
+}
+body.ui-neo-brutalism .nav__toggle {
+    border-radius: 8px !important;
+    border: 3px solid var(--ink) !important;
+    box-shadow: 3px 3px 0px 0px var(--ink) !important;
+}
+body.ui-neo-brutalism .nav__toggle span {
+    border-radius: 2px !important;
+}
+body.ui-neo-brutalism .radio-card {
+    border-radius: 12px !important;
+}
+body.ui-neo-brutalism .radio-group {
+    border-radius: 16px !important;
+}
+body.ui-neo-brutalism .dino-egg-btn {
+    border-radius: 12px !important;
+}
