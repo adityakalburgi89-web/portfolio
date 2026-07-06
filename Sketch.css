@@ -1577,18 +1577,209 @@ body.ui-sketch .brutalist-card__author-name {
 }
 
 /* Modifiers to give sketchy colored overlays */
-body.ui-sketch .card--broco { --white: #e1f5fe !important; }
-body.ui-sketch .card--tonot { --white: #e8eaf6 !important; }
-body.ui-sketch .card--bochill { --white: #ffffff !important; }
-body.ui-sketch .card--bredo { --white: #e3f2fd !important; }
-body.ui-sketch .card--kocheng { --white: #fbe9e7 !important; }
-body.ui-sketch .card--yo { --white: #eceff1 !important; }
-body.ui-sketch .card--ded { --white: #fff8e1 !important; }
-body.ui-sketch .card--wuhu { --white: #f3e5f5 !important; }
-body.ui-sketch .card--drino { --white: #fffde7 !important; }
+body.ui-sketch .card--broco {
+    --white: #e1f5fe !important;
+}
+
+body.ui-sketch .card--tonot {
+    --white: #e8eaf6 !important;
+}
+
+body.ui-sketch .card--bochill {
+    --white: #ffffff !important;
+}
+
+body.ui-sketch .card--bredo {
+    --white: #e3f2fd !important;
+}
+
+body.ui-sketch .card--kocheng {
+    --white: #fbe9e7 !important;
+}
+
+body.ui-sketch .card--yo {
+    --white: #eceff1 !important;
+}
+
+body.ui-sketch .card--ded {
+    --white: #fff8e1 !important;
+}
+
+body.ui-sketch .card--wuhu {
+    --white: #f3e5f5 !important;
+}
+
+body.ui-sketch .card--drino {
+    --white: #fffde7 !important;
+}
 
 /* Hide Creatives Section and Nav Link on Sketch Theme */
 body.ui-sketch .nav__item--creatives,
 body.ui-sketch #creatives {
     display: none !important;
-}
+}
+
+/* ===== Sketch Theme Draft Mode (Easter Egg) ===== */
+
+/* Graph paper background */
+body.ui-sketch.sketch-draft-mode {
+    background-color: #fdfbf7 !important;
+    background-image:
+        linear-gradient(90deg, rgba(66, 135, 245, 0.12) 1px, transparent 1px),
+        linear-gradient(rgba(66, 135, 245, 0.12) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    background-attachment: fixed !important;
+}
+
+/* Tooltip helper on face hover */
+body.ui-sketch .hero__image-wrapper::before {
+    content: "Click my face to sketch!";
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    background: var(--postit);
+    border: 2px solid var(--ink);
+    padding: 4px 10px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--ink);
+    white-space: nowrap;
+    border-radius: var(--wobbly-sm);
+    box-shadow: 3px 3px 0px var(--ink);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+body.ui-sketch .hero__image-wrapper:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px) rotate(-5deg);
+}
+
+/* Make face cursor pointer to show clickability */
+body.ui-sketch .hero__image,
+body.ui-sketch .nav__image {
+    cursor: pointer;
+}
+
+/* Image placeholder swaps (wobbly box with X) */
+body.ui-sketch.sketch-draft-mode img {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 5,5 Q 50,2 95,5 Q 98,50 95,95 Q 50,98 5,95 Q 2,50 5,5 Z" fill="%23ffffff" stroke="%232d2d2d" stroke-width="3" /><path d="M 8,8 Q 50,53 92,92" fill="none" stroke="%232d2d2d" stroke-width="2" stroke-dasharray="3,3" /><path d="M 92,8 Q 50,47 8,92" fill="none" stroke="%232d2d2d" stroke-width="2" stroke-dasharray="3,3" /></svg>') !important;
+}
+
+/* Hide videos and show wobbly box placeholders instead */
+body.ui-sketch.sketch-draft-mode video {
+    display: none !important;
+}
+body.ui-sketch.sketch-draft-mode .project__video-container {
+    height: 240px !important;
+    background-color: #ffffff !important;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 5,5 Q 50,2 95,5 Q 98,50 95,95 Q 50,98 5,95 Q 2,50 5,5 Z" fill="%23ffffff" stroke="%232d2d2d" stroke-width="3" /><path d="M 8,8 Q 50,53 92,92" fill="none" stroke="%232d2d2d" stroke-width="2" stroke-dasharray="4,4" /><path d="M 92,8 Q 50,47 8,92" fill="none" stroke="%232d2d2d" stroke-width="2" stroke-dasharray="4,4" /></svg>') !important;
+    background-size: 100% 100% !important;
+    border: none !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Scratched-out borders for cards and sections */
+body.ui-sketch.sketch-draft-mode .section {
+    border: 3px solid var(--ink) !important;
+    margin: 40px auto !important;
+    border-radius: var(--wobbly) !important;
+    background: #ffffff !important;
+    box-shadow: var(--shadow-md) !important;
+    padding: 4rem 2rem !important;
+}
+
+body.ui-sketch.sketch-draft-mode .project__card,
+body.ui-sketch.sketch-draft-mode .experience__item,
+body.ui-sketch.sketch-draft-mode .skills__category {
+    background: #ffffff !important;
+    border: 3px solid var(--ink) !important;
+    border-radius: var(--wobbly-md) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Pencil Annotations (Draft labels/comments) */
+body.ui-sketch.sketch-draft-mode .header::after {
+    content: "← header / nav";
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+body.ui-sketch.sketch-draft-mode .hero__image-wrapper::after {
+    content: "← profile pic (X)";
+    position: absolute;
+    right: -130px;
+    top: 40%;
+    transform: rotate(6deg);
+    font-family: 'Kalam', cursive;
+    font-size: 1.1rem;
+    color: #2d5da1;
+    font-weight: bold;
+}
+
+body.ui-sketch.sketch-draft-mode .about::after {
+    content: "sobre mí / about section";
+    position: absolute;
+    left: 40px;
+    top: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.3rem;
+    color: #2d5da1;
+    font-weight: bold;
+    transform: rotate(-3deg);
+}
+
+body.ui-sketch.sketch-draft-mode .skills::after {
+    content: "skills & tech stack →";
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.3rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    transform: rotate(2deg);
+}
+
+body.ui-sketch.sketch-draft-mode .projects::after {
+    content: "← work / projects (X list)";
+    position: absolute;
+    left: 40px;
+    top: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.3rem;
+    color: #2d5da1;
+    font-weight: bold;
+    transform: rotate(-2deg);
+}
+
+body.ui-sketch.sketch-draft-mode .contact::after {
+    content: "formulario / contact form →";
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.3rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    transform: rotate(3deg);
+}
+
+/* Hide annotations on small screens to prevent layout breaks */
+@media (max-width: 1200px) {
+    body.ui-sketch.sketch-draft-mode .hero__image-wrapper::after,
+    body.ui-sketch.sketch-draft-mode .about::after,
+    body.ui-sketch.sketch-draft-mode .skills::after,
+    body.ui-sketch.sketch-draft-mode .projects::after,
+    body.ui-sketch.sketch-draft-mode .contact::after {
+        display: none !important;
+    }
+}

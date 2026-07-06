@@ -1767,5 +1767,6 @@ body.ui-neo-brutalism .neo-image-toggle {
 }
 
 body.ui-neo-brutalism .hero__image.glitch-active {
+    transition: none !important;
     animation: neo-glitch 0.3s steps(1) 1;
 }
