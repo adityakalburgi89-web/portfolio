@@ -1295,3 +1295,9 @@ body.ui-modern .card--yo { --bg-grid: #eaeaea !important; }
 body.ui-modern .card--ded { --bg-grid: #ffeedb !important; }
 body.ui-modern .card--wuhu { --bg-grid: #f5d6eb !important; }
 body.ui-modern .card--drino { --bg-grid: #fff3c4 !important; }
+
+/* Hide Creatives Section and Nav Link on Modern Theme */
+body.ui-modern .nav__item--creatives,
+body.ui-modern #creatives {
+    display: none !important;
+}

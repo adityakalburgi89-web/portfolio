@@ -1585,4 +1585,10 @@ body.ui-sketch .card--kocheng { --white: #fbe9e7 !important; }
 body.ui-sketch .card--yo { --white: #eceff1 !important; }
 body.ui-sketch .card--ded { --white: #fff8e1 !important; }
 body.ui-sketch .card--wuhu { --white: #f3e5f5 !important; }
-body.ui-sketch .card--drino { --white: #fffde7 !important; }
+body.ui-sketch .card--drino { --white: #fffde7 !important; }
+
+/* Hide Creatives Section and Nav Link on Sketch Theme */
+body.ui-sketch .nav__item--creatives,
+body.ui-sketch #creatives {
+    display: none !important;
+}
