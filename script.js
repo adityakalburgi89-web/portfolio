@@ -9,7 +9,7 @@
     // Apply theme instantly (used on page load)
     function applyTheme(theme) {
         // Remove all potential theme classes
-        document.body.classList.remove('ui-modern', 'ui-neo-brutalism', 'ui-sketch', 'sketch-draft-mode');
+        document.body.classList.remove('ui-modern', 'ui-neo-brutalism', 'ui-sketch');
 
         // Map value to class and apply
         const themeClass = theme === 'neo-brutalism' ? 'ui-neo-brutalism' : (theme === 'sketch' ? 'ui-sketch' : 'ui-modern');
@@ -699,30 +699,6 @@ if (heroContent) {
                 }
             });
         });
-    }
-})();
-
-// ===== Sketch Theme Draft Mode Toggle =====
-(function () {
-    const navFace = document.querySelector('.nav__image');
-    const heroFace = document.querySelector('.hero__image');
-
-    function toggleDraftMode() {
-        if (document.body.classList.contains('ui-sketch')) {
-            document.body.classList.toggle('sketch-draft-mode');
-            
-            // Play glitch audio from public images directory
-            const toggleSound = new Audio('images/glitch.aac');
-            toggleSound.currentTime = 0;
-            toggleSound.play().catch(err => console.log('Audio playback failed:', err));
-        }
-    }
-
-    if (navFace) {
-        navFace.addEventListener('click', toggleDraftMode);
-    }
-    if (heroFace) {
-        heroFace.addEventListener('click', toggleDraftMode);
     }
 })();
 
