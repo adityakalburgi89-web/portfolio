@@ -666,9 +666,25 @@ if (heroContent) {
     const heroImage = document.querySelector('.hero__image');
 
     if (toggleContainer && heroImage) {
+        // Preload glitch audio
+        const glitchSound = new Audio('.vscode/Music/glitch.aac');
+        glitchSound.preload = 'auto';
+
         const buttons = toggleContainer.querySelectorAll('.image-toggle-btn');
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
+                if (btn.classList.contains('active')) return;
+
+                // Play glitch sound
+                glitchSound.currentTime = 0;
+                glitchSound.play().catch(err => console.log('Audio playback failed:', err));
+
+                // Add visual glitch class
+                heroImage.classList.add('glitch-active');
+                setTimeout(() => {
+                    heroImage.classList.remove('glitch-active');
+                }, 300);
+
                 // Remove active class from all buttons
                 buttons.forEach(b => b.classList.remove('active'));
                 // Add active class to clicked button
