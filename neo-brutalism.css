@@ -290,6 +290,7 @@ body.ui-neo-brutalism .hero__image-wrapper {
 }
 
 body.ui-neo-brutalism .hero__image {
+    content: url("images/themePics/NeoBrutralismPIC2.png");
     width: 350px;
     height: 350px;
     object-fit: cover;
@@ -297,6 +298,53 @@ body.ui-neo-brutalism .hero__image {
     box-shadow: 20px 20px 0px 0px var(--neo-accent), 20px 20px 0px 4px var(--ink);
     transform: rotate(-3deg);
     transition: var(--transition-base);
+}
+
+body.ui-neo-brutalism .hero__image.show-photo {
+    content: normal !important;
+}
+
+/* Base style for hiding the toggle on other themes */
+.neo-image-toggle {
+    display: none;
+}
+
+/* Neo brutalism styling */
+body.ui-neo-brutalism .neo-image-toggle {
+    display: flex;
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    transform: rotate(-2deg);
+    background: var(--white);
+    border: var(--border-width) solid var(--ink);
+    box-shadow: 6px 6px 0px 0px var(--ink);
+    z-index: 10;
+}
+
+body.ui-neo-brutalism .image-toggle-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: var(--ink);
+}
+
+body.ui-neo-brutalism .image-toggle-btn:not(:last-child) {
+    border-right: var(--border-width) solid var(--ink);
+}
+
+body.ui-neo-brutalism .image-toggle-btn.active {
+    background-color: var(--neo-secondary);
+}
+
+body.ui-neo-brutalism .image-toggle-btn:hover:not(.active) {
+    background-color: var(--neo-muted);
 }
 
 body.ui-neo-brutalism .hero__image:hover {
@@ -1054,6 +1102,19 @@ body.ui-neo-brutalism .fade-in.visible {
 
     body.ui-neo-brutalism .hero__image-wrapper {
         margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body.ui-neo-brutalism .neo-image-toggle {
+        position: static;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        margin: 1.5rem auto 0 auto;
+        display: inline-flex;
+        box-shadow: 4px 4px 0px 0px var(--ink);
     }
 
     body.ui-neo-brutalism .hero__social {
@@ -1644,4 +1705,8 @@ body.ui-neo-brutalism .radio-group {
 }
 body.ui-neo-brutalism .dino-egg-btn {
     border-radius: 12px !important;
+}
+body.ui-neo-brutalism .neo-image-toggle {
+    border-radius: 12px !important;
+    overflow: hidden;
 }

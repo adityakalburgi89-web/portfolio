@@ -15,6 +15,23 @@
         const themeClass = theme === 'neo-brutalism' ? 'ui-neo-brutalism' : (theme === 'sketch' ? 'ui-sketch' : 'ui-modern');
         document.body.classList.add(themeClass);
 
+        // Reset neo image toggle when entering neo-brutalism theme
+        if (theme === 'neo-brutalism') {
+            const toggleContainer = document.getElementById('neo-image-toggle');
+            const heroImage = document.querySelector('.hero__image');
+            if (toggleContainer && heroImage) {
+                heroImage.classList.remove('show-photo');
+                const buttons = toggleContainer.querySelectorAll('.image-toggle-btn');
+                buttons.forEach(btn => {
+                    if (btn.getAttribute('data-image') === 'art') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+        }
+
         // Check the corresponding radio button
         const targetRadio = document.querySelector(`input[name="theme-choice"][value="${theme}"]`);
         if (targetRadio) targetRadio.checked = true;
@@ -641,6 +658,32 @@ if (heroContent) {
         // Expose closeDecorator method on the element
         decorator.closeDecorator = closeDecorator;
     });
+})();
+
+// ===== Neo Brutalism Image Toggle =====
+(function () {
+    const toggleContainer = document.getElementById('neo-image-toggle');
+    const heroImage = document.querySelector('.hero__image');
+
+    if (toggleContainer && heroImage) {
+        const buttons = toggleContainer.querySelectorAll('.image-toggle-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                buttons.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Switch image based on data attribute
+                const imgType = btn.getAttribute('data-image');
+                if (imgType === 'photo') {
+                    heroImage.classList.add('show-photo');
+                } else {
+                    heroImage.classList.remove('show-photo');
+                }
+            });
+        });
+    }
 })();
 
 
