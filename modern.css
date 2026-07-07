@@ -6,9 +6,11 @@
 
 /* ===== CSS Variables ===== */
 body.ui-modern {
-    --primary-color: #fd4091; /* Y2K Hot Pink */
+    --primary-color: #fd4091;
+    /* Y2K Hot Pink */
     --primary-dark: #e82c7d;
-    --accent-green: #38b000; /* Neon/Retro Green */
+    --accent-green: #38b000;
+    /* Neon/Retro Green */
     --bg-pink: #fd4091;
     --bg-white: #ffffff;
     --bg-grid: #f5f5f5;
@@ -36,15 +38,18 @@ body.ui-modern {
 body.ui-modern::-webkit-scrollbar {
     width: 14px;
 }
+
 body.ui-modern::-webkit-scrollbar-track {
     background: #ffffff;
     border-left: var(--border-width) solid #000000;
 }
+
 body.ui-modern::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border: var(--border-width) solid #000000;
     border-radius: 0;
 }
+
 body.ui-modern::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
 }
@@ -94,7 +99,8 @@ body.ui-modern .header::after {
     content: "";
     position: absolute;
     bottom: -16px;
-    left: -3px; /* Align with border */
+    left: -3px;
+    /* Align with border */
     width: calc(100% + 6px);
     height: 16px;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'><path d='M0 16V12h4V8h4V4h4V0h4v4h4v8h4v12h4v16Z' fill='%23fd4091'/></svg>");
@@ -206,9 +212,15 @@ body.ui-modern .hero::before {
     pointer-events: none;
     animation: float-flower 6s ease-in-out infinite alternate;
 }
+
 @keyframes float-flower {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-10px) rotate(15deg); }
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-10px) rotate(15deg);
+    }
 }
 
 /* Floating Pixel Flower (Top-Right) */
@@ -226,9 +238,15 @@ body.ui-modern .hero__container::before {
     pointer-events: none;
     animation: float-flower-reverse 8s ease-in-out infinite alternate;
 }
+
 @keyframes float-flower-reverse {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(12px) rotate(-20deg); }
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(12px) rotate(-20deg);
+    }
 }
 
 body.ui-modern .hero__container {
@@ -505,18 +523,22 @@ body.ui-modern .skills__category-title::after {
 body.ui-modern .skills__category:nth-child(1) .skills__category-title::after {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 8' fill='black'><path d='M2 0h1v1H2zm7 0h1v1H9zm1 1h1v1h-1zm-9 0h1v1H1zm0 1h9v1H1zm0 1h2v1H1zm4 0h3v1H5zm3 0h2v1H8zm-7 1h9v1H1zm2 1h1v1H3zm5 0h1v1H8zm-6 1h1v1H2zm7 0h1v1H9z'/></svg>");
 }
+
 /* Frontend Icon -> Eye */
 body.ui-modern .skills__category:nth-child(2) .skills__category-title::after {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='black'><path d='M4 0h4v1H4zm-2 1h2v1H2zm6 0h2v1H8zm-3 1h3v4H5zm-3 0h1v1H2zm7 0h1v1H9zm-8 1h1v2H1zm9 0h1v2H10zm-8 2h1v1H2zm7 0h1v1H9zm-6 1h1v1H3zm4 0h1v1H7zm-4 1h4v1H3z'/></svg>");
 }
+
 /* Databases Icon -> Cloud */
 body.ui-modern .skills__category:nth-child(3) .skills__category-title::after {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='black'><path d='M4 2h4v1H4zm3-1h3v1H7zm-5 2h2v1H2zm6 0h1v1H8zm-7 1h10v1H1zm0 1h11v1H1zm1 1h9v1H2z'/></svg>");
 }
+
 /* Tools & DevOps Icon -> Skateboard */
 body.ui-modern .skills__category:nth-child(4) .skills__category-title::after {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='black'><rect x='1' y='3' width='10' height='2'/><circle cx='3' cy='6' r='1.5'/><circle cx='9' cy='6' r='1.5'/></svg>");
 }
+
 /* Testing Icon -> Heart */
 body.ui-modern .skills__category:nth-child(5) .skills__category-title::after {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' fill='black'><path d='M1 0h2v1H1zm4 0h2v1H5zm-5 1h7v2H0zm1 2h5v1H1zm1 1h3v1H2zm1 1h1v1H3z'/></svg>");
@@ -951,16 +973,16 @@ body.ui-modern .radio-card {
     box-shadow: none !important;
 }
 
-body.ui-modern .radio-option input:checked + .radio-card {
+body.ui-modern .radio-option input:checked+.radio-card {
     border-color: #000000 !important;
     background: var(--primary-color) !important;
     box-shadow: 2px 2px 0px #000000 !important;
     transform: translate(-1px, -1px) !important;
 }
 
-body.ui-modern .radio-option input:checked + .radio-card .shape-wrap svg circle,
-body.ui-modern .radio-option input:checked + .radio-card .shape-wrap svg polygon,
-body.ui-modern .radio-option input:checked + .radio-card .shape-wrap svg rect {
+body.ui-modern .radio-option input:checked+.radio-card .shape-wrap svg circle,
+body.ui-modern .radio-option input:checked+.radio-card .shape-wrap svg polygon,
+body.ui-modern .radio-option input:checked+.radio-card .shape-wrap svg rect {
     stroke: #ffffff !important;
     fill: none !important;
 }
@@ -1010,12 +1032,21 @@ body.ui-modern .fade-in.visible {
 
 /* Mobile */
 @media screen and (max-width: 768px) {
+
     body.ui-modern .header,
     body.ui-modern .section,
     body.ui-modern .footer {
         border-left: none;
         border-right: none;
         max-width: 100%;
+    }
+
+    body.ui-modern .dino-overlay-container {
+        width: 52px;
+        height: 52px;
+        top: -32px;
+        left: -40px;
+        filter: drop-shadow(3px 3px 0px #000000);
     }
 
     body.ui-modern .header {
@@ -1286,18 +1317,83 @@ body.ui-modern .brutalist-card__icon svg {
 }
 
 /* Modifiers to give Y2K flair to the backgrounds */
-body.ui-modern .card--broco { --bg-grid: #e2f1af !important; }
-body.ui-modern .card--tonot { --bg-grid: #cce3f6 !important; }
-body.ui-modern .card--bochill { --bg-grid: #ffffff !important; }
-body.ui-modern .card--bredo { --bg-grid: #ffd1e3 !important; }
-body.ui-modern .card--kocheng { --bg-grid: #ffeedb !important; }
-body.ui-modern .card--yo { --bg-grid: #eaeaea !important; }
-body.ui-modern .card--ded { --bg-grid: #ffeedb !important; }
-body.ui-modern .card--wuhu { --bg-grid: #f5d6eb !important; }
-body.ui-modern .card--drino { --bg-grid: #fff3c4 !important; }
+body.ui-modern .card--broco {
+    --bg-grid: #e2f1af !important;
+}
+
+body.ui-modern .card--tonot {
+    --bg-grid: #cce3f6 !important;
+}
+
+body.ui-modern .card--bochill {
+    --bg-grid: #ffffff !important;
+}
+
+body.ui-modern .card--bredo {
+    --bg-grid: #ffd1e3 !important;
+}
+
+body.ui-modern .card--kocheng {
+    --bg-grid: #ffeedb !important;
+}
+
+body.ui-modern .card--yo {
+    --bg-grid: #eaeaea !important;
+}
+
+body.ui-modern .card--ded {
+    --bg-grid: #ffeedb !important;
+}
+
+body.ui-modern .card--wuhu {
+    --bg-grid: #f5d6eb !important;
+}
+
+body.ui-modern .card--drino {
+    --bg-grid: #fff3c4 !important;
+}
 
 /* Hide Creatives Section and Nav Link on Modern Theme */
 body.ui-modern .nav__item--creatives,
 body.ui-modern #creatives {
     display: none !important;
+}
+
+/* Dinosaur Header Overlays for Modern Theme */
+body.ui-modern .title-text-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+body.ui-modern .dino-overlay-container {
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -50px;
+    left: -65px;
+    z-index: 5;
+    pointer-events: none;
+    transform: rotate(-12deg);
+    animation: float-dino-overlay 4s ease-in-out infinite alternate;
+    filter: drop-shadow(4px 4px 0px #000000);
+}
+
+body.ui-modern .dino-header-overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: transparent;
+    image-rendering: pixelated;
+    filter: url(#chromakey-filter);
+}
+
+@keyframes float-dino-overlay {
+    0% {
+        transform: rotate(-12deg) translateY(0);
+    }
+    100% {
+        transform: rotate(-8deg) translateY(-4px);
+    }
 }

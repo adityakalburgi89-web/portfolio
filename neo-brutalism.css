@@ -1434,82 +1434,106 @@ body.ui-neo-brutalism .card--broco {
     --card-bg: #4ea8a8;
     color: #000000;
 }
+
 body.ui-neo-brutalism .card--tonot {
     --card-bg: #0e3860;
     color: #ffffff;
 }
+
 body.ui-neo-brutalism .card--tonot .brutalist-card__author-logo {
     background: #ffffff;
 }
+
 body.ui-neo-brutalism .card--tonot .brutalist-card__author-logo svg {
     fill: #0e3860;
 }
+
 body.ui-neo-brutalism .card--tonot .brutalist-card__footer {
     border-top-color: rgba(255, 255, 255, 0.3);
 }
+
 body.ui-neo-brutalism .card--tonot .brutalist-card__content {
     border-color: rgba(255, 255, 255, 0.4);
 }
+
 body.ui-neo-brutalism .card--bochill {
     --card-bg: #ffffff;
     color: #000000;
 }
+
 body.ui-neo-brutalism .card--bredo {
     --card-bg: #0f71b3;
     color: #ffffff;
 }
+
 body.ui-neo-brutalism .card--bredo .brutalist-card__author-logo {
     background: #ffffff;
 }
+
 body.ui-neo-brutalism .card--bredo .brutalist-card__author-logo svg {
     fill: #0f71b3;
 }
+
 body.ui-neo-brutalism .card--bredo .brutalist-card__footer {
     border-top-color: rgba(255, 255, 255, 0.3);
 }
+
 body.ui-neo-brutalism .card--bredo .brutalist-card__content {
     border-color: rgba(255, 255, 255, 0.4);
 }
+
 body.ui-neo-brutalism .card--kocheng {
     --card-bg: #df5538;
     color: #000000;
 }
+
 body.ui-neo-brutalism .card--yo {
     --card-bg: #7f7f7f;
     color: #ffffff;
 }
+
 body.ui-neo-brutalism .card--yo .brutalist-card__author-logo {
     background: #ffffff;
 }
+
 body.ui-neo-brutalism .card--yo .brutalist-card__author-logo svg {
     fill: #7f7f7f;
 }
+
 body.ui-neo-brutalism .card--yo .brutalist-card__footer {
     border-top-color: rgba(255, 255, 255, 0.3);
 }
+
 body.ui-neo-brutalism .card--yo .brutalist-card__content {
     border-color: rgba(255, 255, 255, 0.4);
 }
+
 body.ui-neo-brutalism .card--ded {
     --card-bg: #e4b795;
     color: #000000;
 }
+
 body.ui-neo-brutalism .card--wuhu {
     --card-bg: #6a2745;
     color: #ffffff;
 }
+
 body.ui-neo-brutalism .card--wuhu .brutalist-card__author-logo {
     background: #ffffff;
 }
+
 body.ui-neo-brutalism .card--wuhu .brutalist-card__author-logo svg {
     fill: #6a2745;
 }
+
 body.ui-neo-brutalism .card--wuhu .brutalist-card__footer {
     border-top-color: rgba(255, 255, 255, 0.3);
 }
+
 body.ui-neo-brutalism .card--wuhu .brutalist-card__content {
     border-color: rgba(255, 255, 255, 0.4);
 }
+
 body.ui-neo-brutalism .card--drino {
     --card-bg: #e5b323;
     color: #000000;
@@ -1535,6 +1559,7 @@ body.ui-neo-brutalism .creatives__grid {
         gap: 30px;
     }
 }
+
 @media screen and (max-width: 600px) {
     body.ui-neo-brutalism .creatives__grid {
         grid-template-columns: 1fr;
@@ -1652,60 +1677,74 @@ body.ui-neo-brutalism .btn {
     border-radius: 12px !important;
     box-shadow: 4px 4px 0px 0px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .nav__brand {
     border: 3px solid var(--ink) !important;
     border-radius: 12px !important;
     box-shadow: 4px 4px 0px 0px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .nav__image {
     border-radius: 8px !important;
     border: 2px solid var(--ink) !important;
 }
+
 body.ui-neo-brutalism .hero__image {
     border: 5px solid var(--ink) !important;
     border-radius: 24px !important;
     box-shadow: 16px 16px 0px 0px var(--neo-accent), 16px 16px 0px 5px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .hero__social-link {
     border: 4px solid var(--ink) !important;
     border-radius: 12px !important;
     box-shadow: 4px 4px 0px 0px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .hero__subtitle {
     border: 4px solid var(--ink) !important;
     border-radius: 12px !important;
 }
+
 body.ui-neo-brutalism .hero__description {
     border: 5px solid var(--ink) !important;
     border-radius: 20px !important;
     box-shadow: 10px 10px 0px 0px var(--neo-muted) !important;
 }
+
 body.ui-neo-brutalism .about__content {
     border: 5px solid var(--ink) !important;
     border-radius: 24px !important;
     box-shadow: 12px 12px 0px 0px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .about__paragraph strong {
     border-radius: 6px !important;
     border: 2px solid var(--ink) !important;
 }
+
 body.ui-neo-brutalism .nav__toggle {
     border-radius: 8px !important;
     border: 3px solid var(--ink) !important;
     box-shadow: 3px 3px 0px 0px var(--ink) !important;
 }
+
 body.ui-neo-brutalism .nav__toggle span {
     border-radius: 2px !important;
 }
+
 body.ui-neo-brutalism .radio-card {
     border-radius: 12px !important;
 }
+
 body.ui-neo-brutalism .radio-group {
     border-radius: 16px !important;
 }
+
 body.ui-neo-brutalism .dino-egg-btn {
     border-radius: 12px !important;
 }
+
 body.ui-neo-brutalism .neo-image-toggle {
     border-radius: 12px !important;
     overflow: hidden;
@@ -1718,47 +1757,57 @@ body.ui-neo-brutalism .neo-image-toggle {
         transform: translate(-5px, -5px) rotate(-4deg);
         filter: hue-rotate(90deg);
     }
+
     10% {
         clip-path: inset(10% 0 70% 0);
         transform: translate(5px, 2px) rotate(-2deg);
         filter: hue-rotate(180deg);
     }
+
     20% {
         clip-path: inset(40% 0 40% 0);
         transform: translate(-3px, -2px) rotate(-3deg);
         filter: none;
     }
+
     30% {
         clip-path: inset(70% 0 10% 0);
         transform: translate(3px, 5px) rotate(-5deg);
         filter: hue-rotate(270deg);
     }
+
     40% {
         clip-path: inset(25% 0 50% 0);
         transform: translate(-5px, -2px) rotate(-1deg);
     }
+
     50% {
         clip-path: inset(50% 0 25% 0);
         transform: translate(2px, -4px) rotate(-3deg);
         filter: invert(1);
     }
+
     60% {
         clip-path: inset(0 0 80% 0);
         transform: translate(-2px, 3px) rotate(-4deg);
         filter: none;
     }
+
     70% {
         clip-path: inset(15% 0 15% 0);
         transform: translate(4px, -1px) rotate(-2deg);
     }
+
     80% {
         clip-path: inset(60% 0 5% 0);
         transform: translate(-4px, 4px) rotate(-3deg);
     }
+
     90% {
         clip-path: inset(5% 0 60% 0);
         transform: translate(3px, -3px) rotate(-2deg);
     }
+
     100% {
         clip-path: inset(0 0 0 0);
         transform: translate(0, 0) rotate(-3deg);
@@ -1769,4 +1818,4 @@ body.ui-neo-brutalism .neo-image-toggle {
 body.ui-neo-brutalism .hero__image.glitch-active {
     transition: none !important;
     animation: neo-glitch 0.3s steps(1) 1;
-}
+}

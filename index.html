@@ -158,7 +158,10 @@
                 </div>
                 <div class="hero__text">
                     <h1 class="hero__title">
-                        Hi, I'm <span class="hero__name">Aditya Kalburgi</span>
+                        <span class="title-text-wrap">
+                            <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/00.png" class="dino-header-overlay" alt="Dino"></span>
+                            Hi, I'm <span class="hero__name">Aditya Kalburgi</span>
+                        </span>
                     </h1>
                     <h2 class="hero__subtitle">Full Stack Java Developer</h2>
                     <p class="hero__description">
@@ -180,7 +183,12 @@
     <!-- About Me Section -->
     <section class="about section" id="about">
         <div class="container">
-            <h2 class="section__title">About Me</h2>
+            <h2 class="section__title">
+                <span class="title-text-wrap">
+                    <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/01.png" class="dino-header-overlay" alt="Dino"></span>
+                    About Me
+                </span>
+            </h2>
             <div class="about__content">
                 <div class="about__text">
                     <p class="about__paragraph">
@@ -215,7 +223,12 @@
     <!-- Skills Section -->
     <section class="skills section" id="skills">
         <div class="container">
-            <h2 class="section__title">Skills</h2>
+            <h2 class="section__title">
+                <span class="title-text-wrap">
+                    <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/10.png" class="dino-header-overlay" alt="Dino"></span>
+                    Skills
+                </span>
+            </h2>
             <div class="skills__container">
                 <!-- Backend Skills -->
                 <div class="skills__category">
@@ -377,7 +390,12 @@
     <!-- Projects Section -->
     <section class="projects section" id="projects">
         <div class="container">
-            <h2 class="section__title">Projects</h2>
+            <h2 class="section__title">
+                <span class="title-text-wrap">
+                    <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/11.png" class="dino-header-overlay" alt="Dino"></span>
+                    Projects
+                </span>
+            </h2>
             <div class="projects__container">
                 <!-- Project 1: Quick Commerce Application -->
                 <div class="project__card">
@@ -832,7 +850,12 @@
     <!-- Experience & Education Section -->
     <section class="experience section" id="experience">
         <div class="container">
-            <h2 class="section__title">Experience & Education</h2>
+            <h2 class="section__title">
+                <span class="title-text-wrap">
+                    <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/20.png" class="dino-header-overlay" alt="Dino"></span>
+                    Experience & Education
+                </span>
+            </h2>
             <div class="experience__container">
                 <!-- Experience -->
                 <div class="experience__section">
@@ -895,7 +918,12 @@
     <!-- Contact Section -->
     <section class="contact section" id="contact">
         <div class="container">
-            <h2 class="section__title">Get In Touch</h2>
+            <h2 class="section__title">
+                <span class="title-text-wrap">
+                    <span class="dino-overlay-container"><img src="images/DinoImg/imageonline/imageonline2/21.png" class="dino-header-overlay" alt="Dino"></span>
+                    Get In Touch
+                </span>
+            </h2>
             <div class="contact__container">
                 <div class="contact__info">
                     <p class="contact__description">
@@ -966,6 +994,12 @@
     <video id="dino-raw-video" class="hidden" muted playsinline crossorigin="anonymous">
         <source src="images/video/Pixel_art_dinosaur_dancing_Gangn…_202607042028 (1).mp4" type="video/mp4">
     </video>
+
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;" width="0" height="0">
+        <filter id="chromakey-filter">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1.5 -2.5 1.5 1 0" />
+        </filter>
+    </svg>
 
     <script src="script.js"></script>
 </body>
