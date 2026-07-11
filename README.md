@@ -1,6 +1,6 @@
-# Full Stack Java Developer Portfolio
+# AI Full Stack Developer Portfolio
 
-A professional, recruiter-ready portfolio website built with vanilla HTML5, CSS3, and JavaScript. This single-page portfolio showcases full-stack Java development skills with a clean, modern, enterprise-style design.
+A professional, recruiter-ready portfolio website built with vanilla HTML5, CSS3, and JavaScript. This single-page portfolio showcases AI & Full Stack Java development skills with a clean, modern, enterprise-style design.
 
 ## Features
 
@@ -35,9 +35,10 @@ portfoliio/
 
 ## Tech Stack Highlighted
 
+- **Agentic AI**: Spring AI, LangChain4j, AI Agents, Function Calling, Multi-Agent Systems, RAG
 - **Backend**: Java, Spring Boot, REST APIs, Spring Security, JWT, Hibernate, JPA
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Databases**: MongoDB, MySQL
+- **Databases**: MongoDB, MySQL, PostgreSQL, Pinecone (Vector)
 - **Tools**: Git, GitHub, Docker, Postman
 - **Deployment**: Vercel, Netlify, Render
 
