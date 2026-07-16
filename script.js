@@ -703,4 +703,215 @@ if (heroContent) {
 })();
 
 
+// ===== Retro Dope Wars Game Logic =====
+(function () {
+    const gameState = {
+        cash: 1200,
+        inventory: {
+            COCAINE: 10,
+            HEROIN: 5,
+            WEED: 50,
+            ACID: 0,
+            SPEED: 5,
+            LUDES: 0
+        },
+        prices: {
+            COCAINE: 150,
+            HEROIN: 80,
+            WEED: 10,
+            ACID: 120,
+            SPEED: 30,
+            LUDES: 5
+        },
+        basePrices: {
+            COCAINE: 150,
+            HEROIN: 80,
+            WEED: 10,
+            ACID: 120,
+            SPEED: 30,
+            LUDES: 5
+        },
+        selectedDrug: "COCAINE",
+        currentDate: new Date(1994, 1, 4), // Feb 4, 1994
+        repaymentDate: new Date(1994, 1, 7), // Feb 7, 1994
+        currentCity: "MANHATTAN",
+        hoursElapsed: 9 // Clock starts at 9:00 (represented by hoursElapsed = 9)
+    };
+
+    const monthNames = ["FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+    function formatDate(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = "FEB"; // Pinning to Feb 1994 for simplicity, or we can use monthNames
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
+
+    function updateUI(customMessage) {
+        // Cash
+        const cashValEl = document.getElementById('game-cash');
+        if (cashValEl) cashValEl.textContent = gameState.cash;
+
+        // Inventory & Weight
+        let totalWeight = 0;
+        for (const [drug, qty] of Object.entries(gameState.inventory)) {
+            totalWeight += qty;
+            const qtyEl = document.getElementById(`inv-qty-${drug}`);
+            if (qtyEl) qtyEl.textContent = `${qty}g`;
+        }
+
+        const weightEl = document.getElementById('game-weight');
+        if (weightEl) weightEl.textContent = `${totalWeight} / 100g`;
+
+        // Active selection pill
+        const activePillEl = document.getElementById('game-active-drug');
+        if (activePillEl) activePillEl.textContent = gameState.selectedDrug;
+
+        // Dialogue text
+        const dialogueEl = document.getElementById('game-dialogue-msg');
+        if (dialogueEl) {
+            if (customMessage) {
+                dialogueEl.textContent = customMessage;
+            } else {
+                const currentPrice = gameState.prices[gameState.selectedDrug];
+                dialogueEl.textContent = `"I've got some good stuff. ${gameState.selectedDrug} is going for $${currentPrice}/g. What do you want?"`;
+            }
+        }
+
+        // Active selection in list
+        const drugItems = document.querySelectorAll('.game-drug-item');
+        drugItems.forEach(item => {
+            if (item.getAttribute('data-drug') === gameState.selectedDrug) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+
+        // Dates
+        const todayDateEl = document.getElementById('game-today-date');
+        const repayDateEl = document.getElementById('game-repay-date');
+        if (todayDateEl) todayDateEl.textContent = formatDate(gameState.currentDate);
+        if (repayDateEl) repayDateEl.textContent = formatDate(gameState.repaymentDate);
+
+        // Clock hands
+        const hourHand = document.getElementById('clock-hour-hand');
+        const minHand = document.getElementById('clock-minute-hand');
+        if (hourHand && minHand) {
+            const hourAngle = (gameState.hoursElapsed % 12) * 30; // 30 deg per hour
+            const minAngle = 0; // Fixed minute hand (9:00, 12:00 etc)
+            hourHand.setAttribute('transform', `rotate(${hourAngle}, 50, 50)`);
+            minHand.setAttribute('transform', `rotate(${minAngle}, 50, 50)`);
+        }
+    }
+
+    function getSelectedWeight() {
+        let weight = 0;
+        for (const qty of Object.values(gameState.inventory)) {
+            weight += qty;
+        }
+        return weight;
+    }
+
+    function initGame() {
+        const drugItems = document.querySelectorAll('.game-drug-item');
+        drugItems.forEach(item => {
+            item.addEventListener('click', () => {
+                gameState.selectedDrug = item.getAttribute('data-drug');
+                updateUI();
+            });
+        });
+
+        const invItems = document.querySelectorAll('.game-inventory-item');
+        invItems.forEach(item => {
+            item.addEventListener('click', () => {
+                gameState.selectedDrug = item.getAttribute('data-drug-name');
+                updateUI();
+            });
+        });
+
+        const buyBtn = document.getElementById('game-buy-btn');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', () => {
+                const drug = gameState.selectedDrug;
+                const price = gameState.prices[drug];
+                const totalWeight = getSelectedWeight();
+
+                if (gameState.cash < price) {
+                    updateUI(`"You don't have enough cash, kid."`);
+                } else if (totalWeight >= 100) {
+                    updateUI(`"Your pockets are full! You can't carry any more."`);
+                } else {
+                    gameState.cash -= price;
+                    gameState.inventory[drug]++;
+                    updateUI(`"Good deal. Anything else?"`);
+                }
+            });
+        }
+
+        const sellBtn = document.getElementById('game-sell-btn');
+        if (sellBtn) {
+            sellBtn.addEventListener('click', () => {
+                const drug = gameState.selectedDrug;
+                const price = gameState.prices[drug];
+
+                if (gameState.inventory[drug] <= 0) {
+                    updateUI(`"You can't sell what you don't have."`);
+                } else {
+                    gameState.cash += price;
+                    gameState.inventory[drug]--;
+                    updateUI(`"Thanks for the stuff. Need anything else?"`);
+                }
+            });
+        }
+
+        const travelBtns = document.querySelectorAll('.game-travel-btn');
+        travelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const city = btn.getAttribute('data-city');
+                gameState.currentCity = city;
+
+                // Advance Date
+                gameState.currentDate.setDate(gameState.currentDate.getDate() + 1);
+
+                // Fluctuates prices
+                for (const drug of Object.keys(gameState.prices)) {
+                    const base = gameState.basePrices[drug];
+                    const multiplier = 0.5 + Math.random() * 1.0; // 50% to 150%
+                    gameState.prices[drug] = Math.max(1, Math.round(base * multiplier));
+                }
+
+                // Advance clock by 3 hours
+                gameState.hoursElapsed = (gameState.hoursElapsed + 3) % 12;
+
+                // Check loan shark repayment
+                let loanMsg = "";
+                if (gameState.currentDate >= gameState.repaymentDate) {
+                    const repaymentAmount = 500;
+                    gameState.cash = Math.max(0, gameState.cash - repaymentAmount);
+                    
+                    // Set next repayment to current date + 3 days
+                    const nextRepay = new Date(gameState.currentDate);
+                    nextRepay.setDate(nextRepay.getDate() + 3);
+                    gameState.repaymentDate = nextRepay;
+                    
+                    loanMsg = ` Loan shark took $${repaymentAmount}!`;
+                }
+
+                updateUI(`"Arrived in ${city}. Local prices shifted!${loanMsg}"`);
+            });
+        });
+
+        updateUI();
+    }
+
+    // Initialize game once DOM is loaded or script runs
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGame);
+    } else {
+        initGame();
+    }
+})();
+
+
 

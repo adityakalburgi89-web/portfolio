@@ -337,6 +337,10 @@ body.ui-sketch .radio-group {
     display: none !important;
 }
 
+.dino-header-overlay {
+    display: none;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .decorator-left {
