@@ -1,14 +1,15 @@
 /* ===== RETRO DOPE WARS THEME (Sketch Replacement) ===== */
 
 /* 1. Hiding all normal elements */
-body.ui-sketch > *:not(.theme-switcher-container):not(.retro-game-container) {
+body.ui-sketch>*:not(.theme-switcher-container):not(.retro-game-container) {
     display: none !important;
 }
 
 /* 2. Base styling when ui-sketch is active */
 body.ui-sketch {
     background-color: #111111 !important;
-    background-image: none !important; /* Remove dot grid */
+    background-image: none !important;
+    /* Remove dot grid */
     font-family: 'VT323', monospace !important;
     overflow: hidden !important;
     height: 100vh !important;
@@ -42,7 +43,7 @@ body:not(.ui-sketch) .retro-game-container {
     max-width: 950px;
     height: 600px;
     border: 6px solid #000000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: #d6d6d8;
     color: #000000;
     position: relative;
@@ -335,6 +336,7 @@ body.ui-sketch .theme-switcher-container {
     left: 20px;
     z-index: 9999;
 }
+
 body.ui-sketch .theme-switcher-container .radio-group {
     background: #161616;
     border: 3px solid #ffffff;
@@ -343,6 +345,7 @@ body.ui-sketch .theme-switcher-container .radio-group {
     padding: 6px;
     gap: 8px;
 }
+
 body.ui-sketch .theme-switcher-container .radio-card {
     background: #d6d6d8;
     border: 2px solid #000000;
@@ -350,24 +353,28 @@ body.ui-sketch .theme-switcher-container .radio-card {
     padding: 4px;
     transition: none;
 }
+
 body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card {
     background: #ffffff;
     border-color: #000000;
     box-shadow: none;
     transform: none;
 }
+
 body.ui-sketch .theme-switcher-container .shape-wrap svg circle,
 body.ui-sketch .theme-switcher-container .shape-wrap svg polygon,
 body.ui-sketch .theme-switcher-container .shape-wrap svg rect {
     stroke: #000000;
     stroke-width: 4;
 }
+
 body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card .shape-wrap svg circle,
 body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card .shape-wrap svg polygon,
 body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card .shape-wrap svg rect {
     stroke: #000000;
     fill: #000000;
 }
+
 body.ui-sketch .theme-switcher-container .shape-label {
     display: none;
 }
