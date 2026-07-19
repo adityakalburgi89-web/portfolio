@@ -42,12 +42,16 @@ body:not(.ui-sketch) .retro-game-container {
     width: 100%;
     max-width: 650px;
     height: auto;
-    border: 14px solid #222222; /* Thick physical monitor bezel */
-    border-radius: 12px; /* Curved corners for vintage CRT look */
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.9), 
-        0 0 0 4px #000000, /* Crisp outer black frame boundary */
-        inset 0 0 20px rgba(0, 0, 0, 0.95); /* Deep screen pocket shadow */
+    border: 14px solid #222222;
+    /* Thick physical monitor bezel */
+    border-radius: 12px;
+    /* Curved corners for vintage CRT look */
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.9),
+        0 0 0 4px #000000,
+        /* Crisp outer black frame boundary */
+        inset 0 0 20px rgba(0, 0, 0, 0.95);
+    /* Deep screen pocket shadow */
     background-color: #0c0c0c;
     position: relative;
     user-select: none;
@@ -60,9 +64,12 @@ body:not(.ui-sketch) .retro-game-container {
     content: " ";
     display: block;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
     background-size: 100% 3px, 6px 100%;
     pointer-events: none;
     z-index: 5;
@@ -74,9 +81,12 @@ body:not(.ui-sketch) .retro-game-container {
     content: " ";
     display: block;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background: radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 65%),
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 40%);
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 40%);
     pointer-events: none;
     z-index: 6;
 }
@@ -90,9 +100,17 @@ body:not(.ui-sketch) .retro-game-container {
 
 /* Subtle CRT phosphor pulse */
 @keyframes crt-flicker {
-    0% { opacity: 0.995; }
-    50% { opacity: 0.988; }
-    100% { opacity: 0.995; }
+    0% {
+        opacity: 0.995;
+    }
+
+    50% {
+        opacity: 0.988;
+    }
+
+    100% {
+        opacity: 0.995;
+    }
 }
 
 /* Blinking Retro Power LED Indicator on the bezel */
@@ -102,7 +120,8 @@ body:not(.ui-sketch) .retro-game-container {
     right: 12px;
     width: 8px;
     height: 8px;
-    background-color: #39ff14; /* Retro cyber green power LED */
+    background-color: #39ff14;
+    /* Retro cyber green power LED */
     border-radius: 50%;
     box-shadow: 0 0 8px #39ff14, 0 0 15px #39ff14;
     z-index: 10;
@@ -111,8 +130,15 @@ body:not(.ui-sketch) .retro-game-container {
 }
 
 @keyframes led-blink {
-    0% { opacity: 0.4; filter: brightness(0.6); }
-    100% { opacity: 1; filter: brightness(1.3); }
+    0% {
+        opacity: 0.4;
+        filter: brightness(0.6);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1.3);
+    }
 }
 
 /* Left Panel */
