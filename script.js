@@ -20,7 +20,7 @@
             const toggleContainer = document.getElementById('neo-image-toggle');
             const heroImage = document.querySelector('.hero__image');
             if (toggleContainer && heroImage) {
-                heroImage.classList.remove('show-photo');
+                heroImage.src = 'images/themePics/NeoBrutralismPIC2.png';
                 const buttons = toggleContainer.querySelectorAll('.image-toggle-btn');
                 buttons.forEach(btn => {
                     if (btn.getAttribute('data-image') === 'art') {
@@ -29,6 +29,11 @@
                         btn.classList.remove('active');
                     }
                 });
+            }
+        } else {
+            const heroImage = document.querySelector('.hero__image');
+            if (heroImage) {
+                heroImage.src = 'images/adityPhoto111.jpeg';
             }
         }
 
@@ -666,6 +671,19 @@ if (heroContent) {
     const heroImage = document.querySelector('.hero__image');
 
     if (toggleContainer && heroImage) {
+        // Image map for the 4 states
+        // Preload all theme images to prevent transition flickering
+        const allImages = [
+            'images/themePics/NeoBrutralismPIC.png',
+            'images/themePics/NeoBrutralismPIC2.png',
+            'images/themePics/NeoBrutralismPIC3.png',
+            'images/adityPhoto111.jpeg'
+        ];
+        allImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
         // Preload glitch audio from images directory
         const glitchSound = new Audio('images/glitch.aac');
         glitchSound.preload = 'auto';
@@ -675,28 +693,39 @@ if (heroContent) {
             btn.addEventListener('click', () => {
                 if (btn.classList.contains('active')) return;
 
+                const imgType = btn.getAttribute('data-image');
+                const finalSrc = imgType === 'photo' 
+                    ? 'images/adityPhoto111.jpeg' 
+                    : 'images/themePics/NeoBrutralismPIC2.png';
+
+                // Remove active class from all buttons and set it on the clicked one
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
                 // Play glitch sound
                 glitchSound.currentTime = 0;
                 glitchSound.play().catch(err => console.log('Audio playback failed:', err));
 
                 // Add visual glitch class
                 heroImage.classList.add('glitch-active');
+
+                // Rapid Multi-Frame Glitch Sequence (flickers through the other images)
+                setTimeout(() => {
+                    heroImage.src = 'images/themePics/NeoBrutralismPIC.png';
+                }, 75);
+
+                setTimeout(() => {
+                    heroImage.src = 'images/themePics/NeoBrutralismPIC3.png';
+                }, 150);
+
+                setTimeout(() => {
+                    heroImage.src = finalSrc;
+                }, 225);
+
+                // Remove glitch effect after animation completes (300ms)
                 setTimeout(() => {
                     heroImage.classList.remove('glitch-active');
                 }, 300);
-
-                // Remove active class from all buttons
-                buttons.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                // Switch image based on data attribute
-                const imgType = btn.getAttribute('data-image');
-                if (imgType === 'photo') {
-                    heroImage.classList.add('show-photo');
-                } else {
-                    heroImage.classList.remove('show-photo');
-                }
             });
         });
     }
