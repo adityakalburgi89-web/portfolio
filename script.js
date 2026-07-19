@@ -3,6 +3,29 @@
     const STORAGE_KEY = 'portfolio-ui-theme';
     const themeRadios = document.querySelectorAll('input[name="theme-choice"]');
 
+    // Retro Arcade Game Music for Sketch Theme
+    const sketchMusic = new Audio('.vscode/Music/slimeyfox-arcade-80s-era-481352.mp3');
+    sketchMusic.loop = true;
+    sketchMusic.volume = 0.4;
+
+    function playSketchMusic() {
+        sketchMusic.play().catch(err => {
+            console.log("Music play blocked on page load. Waiting for user interaction:", err);
+            const startOnInteraction = () => {
+                const activeRadio = document.querySelector('input[name="theme-choice"]:checked');
+                if (activeRadio && activeRadio.value === 'sketch') {
+                    sketchMusic.play().catch(e => console.log("Play failed: ", e));
+                }
+                window.removeEventListener('click', startOnInteraction);
+            };
+            window.addEventListener('click', startOnInteraction);
+        });
+    }
+
+    function stopSketchMusic() {
+        sketchMusic.pause();
+    }
+
     // Read saved theme or default to 'modern'
     const savedTheme = localStorage.getItem(STORAGE_KEY) || 'modern';
 
@@ -35,6 +58,13 @@
             if (heroImage) {
                 heroImage.src = 'images/adityPhoto111.jpeg';
             }
+        }
+
+        // Play music if Sketch theme is active, otherwise pause it
+        if (theme === 'sketch') {
+            playSketchMusic();
+        } else {
+            stopSketchMusic();
         }
 
         // Check the corresponding radio button
