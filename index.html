@@ -453,34 +453,23 @@
 
                 <!-- Project 2: NexTradeX -->
                 <div class="project__card">
-                    <h3 class="project__title">NexTradeX</h3>
+                    <h3 class="project__title">NexTradeX — Real-Time Crypto Mock Trading &amp; Risk Simulation Engine</h3>
                     <p class="project__description">
-                        A paper trading platform for cryptocurrency featuring autonomous AI trading agents. Users can
-                        simulate
-                        trading without real money, guided by an AI assistant that analyzes market news to provide
-                        real-time sentiment analysis and trade ideas.
+                        A high-throughput cryptocurrency paper trading and financial risk simulation engine supporting perpetual futures, options settlement, automated DCA strategies, and real-time market data failover.
                     </p>
                     <div class="project__details">
                         <div class="project__detail-item">
-                            <strong>Problem:</strong> Provide a risk-free environment for users to learn cryptocurrency
-                            trading,
-                            enhanced by autonomous AI agents that suggest strategies based on real-time news analysis
-                            and portfolio health.
-                        </div>
-                        <div class="project__detail-item">
-                            <strong>Architecture:</strong>
+                            <strong>Architecture &amp; Key Features:</strong>
                             <ul class="project__architecture">
-                                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript - Real-time price updates via
-                                    WebSocket simulation and interactive AI Agent drawer</li>
-                                <li><strong>Backend:</strong> Spring Boot REST APIs with Spring AI &amp; LangChain4j
-                                    integration to orchestrate agentic tools and function calling</li>
-                                <li><strong>Database:</strong> MySQL for transactions and portfolios; Pinecone vector
-                                    database for semantic news analysis</li>
+                                <li><strong>High-Availability Data Pipeline:</strong> Architected a 3-tier external API failover engine (Binance &rarr; Bybit &rarr; MEXC) with symbol/global cooldown circuit breakers and adaptive interval translation, achieving 99.99% market data feed uptime during API rate-limit periods.</li>
+                                <li><strong>Distributed Rate Limiting:</strong> Built a custom Spring @RateLimit interceptor executing atomic Redis Lua scripts (token-bucket algorithm) with a fail-safe bypass mechanism to protect endpoints against burst traffic.</li>
+                                <li><strong>Order Engine &amp; Financial Risk Math:</strong> Engineered a multi-threaded order matching engine and risk liquidation service supporting up to 125x leverage perpetual futures, options settlement, and automated DCA schedules with zero float precision loss using BigDecimal.</li>
+                                <li><strong>Transactional Ledger &amp; Concurrency:</strong> Implemented isolated multi-currency wallet ledgers (SPOT, MARGIN, FUTURES) utilizing ACID database transactions to lock funds upon order creation and prevent double-spending race conditions.</li>
+                                <li><strong>Real-Time UI &amp; Telemetry:</strong> Integrated STOMP WebSockets streaming live candlestick charts using Lightweight Charts and deployed containerized Prometheus &amp; Grafana dashboards to monitor JVM memory, connection pools, and execution latency.</li>
                             </ul>
                         </div>
                         <div class="project__detail-item">
-                            <strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Spring Boot, Spring AI, LangChain4j,
-                            MySQL, Pinecone, REST APIs
+                            <strong>Tech Stack:</strong> Java 17, Spring Boot 3, React 18, Redis, PostgreSQL/H2, WebSockets (STOMP), Prometheus, Grafana, Docker, Tailwind CSS
                         </div>
                     </div>
                     <div class="project__links">

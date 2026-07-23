@@ -463,9 +463,10 @@ body.ui-sketch .radio-group {
         gap: 30px;
     }
 }
+
 @media screen and (max-width: 600px) {
     .creatives__grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-}
+}
