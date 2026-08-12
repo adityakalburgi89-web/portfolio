@@ -83,26 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Sound Toggle (Connects to BGM Player)
-  if (soundToggleBtn) {
-    const bgmPlayer = document.getElementById('ravan-bgm-player');
-    soundToggleBtn.addEventListener('click', () => {
-      if (!bgmPlayer) {
-        alert('Audio player unavailable');
-        return;
-      }
-      if (bgmPlayer.paused) {
-        bgmPlayer.play().then(() => {
-          soundToggleBtn.innerHTML = '<span>🔊 BGM On</span>';
-        }).catch(err => {
-          console.warn('Audio playback error:', err);
-        });
-      } else {
-        bgmPlayer.pause();
-        soundToggleBtn.innerHTML = '<span>🔇 BGM Muted</span>';
-      }
-    });
-  }
+
 
   // 5. Fullscreen Mode
   if (fullscreenBtn) {

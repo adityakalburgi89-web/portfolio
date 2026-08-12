@@ -947,51 +947,51 @@ if (heroContent) {
     const weaponData = {
         trishul: {
             title: "TRISHUL SPEAR",
-            domain: "Agentic AI & LangChain4j",
+            domain: "",
             img: "images/SimpleAssets/weapons/trishul-spear.png",
-            text: "Primary weapon of autonomous intelligence. Expertise in orchestrating multi-agent workflows with LangChain4j and Spring AI. Implements function calling (LLM tool use), vector similarity search with Pinecone/ChromaDB, and resilient RAG pipelines."
+            text: ""
         },
         khanda: {
             title: "KHANDA SWORD",
-            domain: "Core Java & Spring Boot",
+            domain: "",
             img: "images/SimpleAssets/weapons/khanda-sword.png",
-            text: "Unyielding blade of enterprise backend development. Built using Java 17, Spring Boot 3, Spring MVC, JPA/Hibernate, and RESTful microservice architectures engineered for high concurrency and clean code standards."
+            text: ""
         },
         shield: {
             title: "DHAL SHIELD",
-            domain: "Security & Rate Limiting",
+            domain: "",
             img: "images/SimpleAssets/weapons/dhal-shield.png",
-            text: "Impenetrable defense layer. Features custom Spring Security configurations with stateless JWT authentication, distributed Redis Lua token-bucket rate limiters, and ACID database wallet ledgers preventing double-spending."
+            text: ""
         },
         bow: {
             title: "BOW OF AGNI",
-            domain: "React & Modern Web UI",
+            domain: "",
             img: "images/SimpleAssets/weapons/bow-arrow-crossed.png",
-            text: "Precision long-range user interface development. Crafts responsive, highly engaging applications using React.js, Next.js, Tailwind CSS, SVG map integrations, and real-time STOMP WebSocket telemetry visualization."
+            text: ""
         },
         axe: {
             title: "PARASHU AXE",
-            domain: "Databases & Vector Search",
+            domain: "",
             img: "images/SimpleAssets/weapons/parashu-axe.png",
-            text: "Cleaves through high-volume data structures. Proficient in relational (PostgreSQL, MySQL) and NoSQL databases (MongoDB, Redis), alongside vector embedding stores (Pinecone, ChromaDB) for semantic intelligence."
+            text: ""
         },
         hammer: {
             title: "WAR HAMMER",
-            domain: "DevOps & Infrastructure",
+            domain: "",
             img: "images/SimpleAssets/weapons/war-hammer.png",
-            text: "Forges containerized environments and system health monitors. Deploys services with Docker, Kubernetes, Jenkins pipelines, and live system metrics telemetry with Prometheus & Grafana dashboards."
+            text: ""
         },
         chakram: {
             title: "SUDARSHANA CHAKRAM",
-            domain: "Real-Time Streaming & RAG",
+            domain: "",
             img: "images/SimpleAssets/weapons/chakram.png",
-            text: "Swift, rotating wheel of real-time data streams. Built 3-tier external API failover engines (Binance → Bybit → MEXC) with circuit breakers and live WebSocket candlestick price updates."
+            text: ""
         },
         katar: {
             title: "KATAR DAGGER",
-            domain: "JUnit, Mockito & Testing",
+            domain: "",
             img: "images/SimpleAssets/weapons/katar.png",
-            text: "Surgical precision in code validation. Executes rigorous unit and integration testing using JUnit, Mockito, Selenium browser automation, and Postman API suite verification."
+            text: ""
         }
     };
 
@@ -1013,8 +1013,8 @@ if (heroContent) {
                 if (data) {
                     modalImg.src = data.img;
                     modalTitle.textContent = data.title;
-                    modalDomain.textContent = data.domain;
-                    modalBody.textContent = data.text;
+                    if (modalDomain) modalDomain.style.display = data.domain ? 'block' : 'none';
+                    if (modalBody) modalBody.style.display = data.text ? 'block' : 'none';
                     modal.classList.add('active');
                 }
             });
@@ -1042,88 +1042,136 @@ if (heroContent) {
             });
         }
 
-        // Pure BGM (Bhoomiya Rakshaka.mp3) Controller with Smooth Volume Fade-Out / Fade-In
-        const bgmPlayer = document.getElementById('ravan-bgm-player');
+        // Section-Aware BGM Controller with 1-Second Smooth Fade-In / Fade-Out Transitions
+        const ravanBgm = document.getElementById('ravan-bgm-player');
+        const weddingBgm = document.getElementById('wedding-bgm-player');
         const bgmToggleBtn = document.getElementById('ravan-bgm-toggle');
-        if (bgmPlayer && bgmToggleBtn) {
+
+        if (bgmToggleBtn) {
             let isUserEnabled = false;
-            let fadeInterval = null;
+            let activePlayer = null;
+            let fadeIntervals = new Map();
 
-            const fadeAudio = (targetVolume, duration = 1200, onComplete = null) => {
-                clearInterval(fadeInterval);
-                const startVolume = bgmPlayer.volume;
-                const stepCount = 30;
-                const stepTime = duration / stepCount;
-                const volumeChange = (targetVolume - startVolume) / stepCount;
-                let currentStep = 0;
-
-                fadeInterval = setInterval(() => {
-                    currentStep++;
-                    let newVol = bgmPlayer.volume + volumeChange;
-                    if (newVol > 1) newVol = 1;
-                    if (newVol < 0) newVol = 0;
-                    bgmPlayer.volume = newVol;
-
-                    if (currentStep >= stepCount) {
-                        clearInterval(fadeInterval);
-                        bgmPlayer.volume = targetVolume;
-                        if (onComplete) onComplete();
+            const fadePlayerVolume = (player, targetVol, durationMs = 1000) => {
+                return new Promise((resolve) => {
+                    if (!player) {
+                        resolve();
+                        return;
                     }
-                }, stepTime);
-            };
+                    if (fadeIntervals.has(player)) {
+                        clearInterval(fadeIntervals.get(player));
+                    }
 
-            const playWithFadeIn = () => {
-                bgmPlayer.volume = 0;
-                bgmPlayer.play().then(() => {
-                    bgmToggleBtn.classList.add('playing');
-                    fadeAudio(1, 1200);
-                }).catch(err => {
-                    console.log('Audio playback waiting for user interaction:', err);
+                    const startVol = player.volume;
+                    const steps = 30;
+                    const stepTime = durationMs / steps;
+                    const volStep = (targetVol - startVol) / steps;
+                    let currentStep = 0;
+
+                    const interval = setInterval(() => {
+                        currentStep++;
+                        let nextVol = player.volume + volStep;
+                        if (nextVol > 1) nextVol = 1;
+                        if (nextVol < 0) nextVol = 0;
+                        player.volume = nextVol;
+
+                        if (currentStep >= steps) {
+                            clearInterval(interval);
+                            fadeIntervals.delete(player);
+                            player.volume = targetVol;
+                            resolve();
+                        }
+                    }, stepTime);
+
+                    fadeIntervals.set(player, interval);
                 });
             };
 
-            const stopWithFadeOut = (pauseAfter = true, duration = 350) => {
-                fadeAudio(0, duration, () => {
-                    if (pauseAfter) {
-                        bgmPlayer.pause();
+            const isWeddingInView = () => {
+                const weddingSec = document.getElementById('wedding-scene');
+                if (!weddingSec) return false;
+                const rect = weddingSec.getBoundingClientRect();
+                return rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.25;
+            };
+
+            const isPastArsenal = () => {
+                const arsenalSec = document.getElementById('ravan-arsenal');
+                if (!arsenalSec) return false;
+                const rect = arsenalSec.getBoundingClientRect();
+                return rect.bottom <= 50;
+            };
+
+            const getTargetPlayer = () => {
+                if (isPastArsenal()) return null;
+                return (isWeddingInView() && weddingBgm) ? weddingBgm : ravanBgm;
+            };
+
+            const stopAllAudioWithFade = async () => {
+                bgmToggleBtn.classList.remove('playing');
+                const playersToFade = [ravanBgm, weddingBgm].filter(p => p && !p.paused);
+                await Promise.all(playersToFade.map(p => fadePlayerVolume(p, 0, 1000)));
+                playersToFade.forEach(p => {
+                    p.pause();
+                });
+                activePlayer = null;
+            };
+
+            const transitionToTargetAudio = async () => {
+                const target = getTargetPlayer();
+                
+                if (!target) {
+                    if (activePlayer && !activePlayer.paused) {
+                        const previousPlayer = activePlayer;
+                        activePlayer = null;
                         bgmToggleBtn.classList.remove('playing');
+                        fadePlayerVolume(previousPlayer, 0, 1000).then(() => {
+                            previousPlayer.pause();
+                        });
                     }
+                    return;
+                }
+
+                if (activePlayer === target && !target.paused && target.volume > 0.9) return;
+
+                const previousPlayer = activePlayer;
+                activePlayer = target;
+                bgmToggleBtn.classList.add('playing');
+
+                // Fade out previous track over 1 second if playing (preserve playback position)
+                if (previousPlayer && previousPlayer !== target && !previousPlayer.paused) {
+                    fadePlayerVolume(previousPlayer, 0, 1000).then(() => {
+                        previousPlayer.pause();
+                    });
+                }
+
+                // Start new target track at volume 0 and fade in over 1 second
+                target.volume = 0;
+                target.play().then(() => {
+                    fadePlayerVolume(target, 1, 1000);
+                }).catch(err => {
+                    console.log('BGM playback waiting for user interaction:', err);
                 });
             };
 
             bgmToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (isUserEnabled && !bgmPlayer.paused && bgmPlayer.volume > 0) {
+                if (isUserEnabled && activePlayer && !activePlayer.paused) {
                     isUserEnabled = false;
-                    stopWithFadeOut(true);
+                    stopAllAudioWithFade();
                 } else {
                     isUserEnabled = true;
-                    playWithFadeIn();
+                    transitionToTargetAudio();
                 }
             });
 
-            // Smooth Fade-Out when scrolling down past Nataraja divider, Smooth Fade-In when returning
-            const sectionDivider = document.querySelector('.nataraja-section-divider');
-            let isScrolledPast = false;
-
-            if (sectionDivider) {
-                window.addEventListener('scroll', () => {
-                    if (!isUserEnabled) return;
-
-                    const dividerRect = sectionDivider.getBoundingClientRect();
-                    const scrolledPastNow = dividerRect.top <= 50;
-
-                    if (scrolledPastNow && !isScrolledPast) {
-                        isScrolledPast = true;
-                        // Slowly fade out & pause when leaving Nataraja section
-                        stopWithFadeOut(true);
-                    } else if (!scrolledPastNow && isScrolledPast) {
-                        isScrolledPast = false;
-                        // Slowly fade in & resume when returning to Nataraja section
-                        playWithFadeIn();
-                    }
-                }, { passive: true });
-            }
+            // Smooth Section Switching on Scroll with 1s Fade Transition
+            window.addEventListener('scroll', () => {
+                if (!isUserEnabled) return;
+                const desired = getTargetPlayer();
+                if (desired && desired !== activePlayer) {
+                    transitionToTargetAudio();
+                }
+            }, { passive: true });
         }
 
         // Dark Mode Background Toggle for r2_c6.png Button
