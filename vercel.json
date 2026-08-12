@@ -1,13 +1,9 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!assets/|public/|images/|Music/|.*\\..*).*)",
+      "destination": "/index.html"
     }
   ]
 }
