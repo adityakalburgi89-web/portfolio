@@ -4,19 +4,19 @@
 
 // Dedicated Asset Map File / Inventory Object
 window.WEDDING_ASSET_MAP = {
-  rama: 'public/assets/wedding/Rama_Wedding_Garland_Transparent.png',
-  sita: 'public/assets/wedding/Sita_Wedding_Garland_Transparent.png',
-  mandapArch: 'public/assets/wedding/Indian_Wedding_Mandap_Arch.png',
-  mandapPillarLeft: 'public/assets/wedding/Mandap_Pillar_Left.png',
-  mandapPillarRight: 'public/assets/wedding/Mandap_Pillar_Right.png',
-  toran: 'public/assets/wedding/Wedding_Floral_Toran.png',
-  hangingStrings: 'public/assets/wedding/Wedding_Hanging_Flower_Strings.png',
-  rangoli: 'public/assets/wedding/Wedding_Flower_Rangoli_Diyas.png',
-  cornerLeft: 'public/assets/wedding/Wedding_Floral_Corner_Left.png',
-  cornerRight: 'public/assets/wedding/Wedding_Floral_Corner_Right.png',
-  havanKund: 'public/assets/wedding/Havan_Kund_Fire_Holder.png',
-  flameLeft: 'public/assets/wedding/Flame_Left.png',
-  flameRight: 'public/assets/wedding/Flame_Right.png'
+  rama: 'assets/wedding/Rama_Wedding_Garland_Transparent.png',
+  sita: 'assets/wedding/Sita_Wedding_Garland_Transparent.png',
+  mandapArch: 'assets/wedding/Indian_Wedding_Mandap_Arch.png',
+  mandapPillarLeft: 'assets/wedding/Mandap_Pillar_Left.png',
+  mandapPillarRight: 'assets/wedding/Mandap_Pillar_Right.png',
+  toran: 'assets/wedding/Wedding_Floral_Toran.png',
+  hangingStrings: 'assets/wedding/Wedding_Hanging_Flower_Strings.png',
+  rangoli: 'assets/wedding/Wedding_Flower_Rangoli_Diyas.png',
+  cornerLeft: 'assets/wedding/Wedding_Floral_Corner_Left.png',
+  cornerRight: 'assets/wedding/Wedding_Floral_Corner_Right.png',
+  havanKund: 'assets/wedding/Havan_Kund_Fire_Holder.png',
+  flameLeft: 'assets/wedding/Flame_Left.png',
+  flameRight: 'assets/wedding/Flame_Right.png'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
