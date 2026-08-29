@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rama &amp; Sita Divine Wedding Scene | Devotional Canvas</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="wedding-scene.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a0b04;
+            color: #fef3c7;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .back-nav a {
+            color: #d4a017;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+
+        .back-nav a:hover {
+            background: rgba(212, 160, 23, 0.2);
+            border-color: #d4a017;
+        }
+
+        .wedding-controls {
+            position: fixed;
+            bottom: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 160, 23, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .wedding-btn {
+            background: none;
+            border: 1px solid rgba(212, 160, 23, 0.5);
+            color: #fef3c7;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .wedding-btn:hover {
+            background: #d4a017;
+            color: #1a0b04;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Portfolio -->
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Portfolio</a>
+    </div>
+
+    <!-- Divine Rama–Sita Indian Wedding Scene Section -->
+    <section class="wedding-section" id="wedding-scene">
+        <!-- Audio BGM Player for Sitaram Kalyanam Song -->
+        <audio id="wedding-bgm-player" src="Music/SitaramKalyanam.mp3" loop preload="none"></audio>
+
+        <div class="wedding-stage-wrapper">
+            <!-- 9:16 Devotional Canvas Stage -->
+            <div class="wedding-canvas" id="wedding-canvas" role="region" aria-label="Rama and Sita Wedding Scene">
+                <!-- Layer 2: Floral Corner Decor -->
+                <img src="assets/wedding/Wedding_Floral_Corner_Left.png" alt="Left Floral Corner Decoration" class="wedding-layer-corner-left" id="wedding-corner-left-img" loading="lazy" decoding="async">
+                <img src="assets/wedding/Wedding_Floral_Corner_Right.png" alt="Right Floral Corner Decoration" class="wedding-layer-corner-right" id="wedding-corner-right-img" loading="lazy" decoding="async">
+
+                <!-- Layer 3: Mandap Arch (Default) -->
+                <img src="assets/wedding/Indian_Wedding_Mandap_Arch.png" alt="Indian Wedding Mandap Arch" class="wedding-mandap-arch" id="wedding-arch-img" loading="lazy" decoding="async">
+
+                <!-- Separate Mandap Pillars (Hidden by default) -->
+                <img src="assets/wedding/Mandap_Pillar_Left.png" alt="Left Mandap Pillar" class="wedding-mandap-pillar-left" id="wedding-pillar-left-img" style="display: none;" loading="lazy" decoding="async">
+                <img src="assets/wedding/Mandap_Pillar_Right.png" alt="Right Mandap Pillar" class="wedding-mandap-pillar-right" id="wedding-pillar-right-img" style="display: none;" loading="lazy" decoding="async">
+
+                <!-- Layer 4: Floral Toran & Hanging Strings -->
+                <img src="assets/wedding/Wedding_Floral_Toran.png" alt="Floral Toran Frame" class="wedding-toran" id="wedding-toran-img" loading="lazy" decoding="async">
+                <img src="assets/wedding/Wedding_Hanging_Flower_Strings.png" alt="Hanging Marigold Flower Strings" class="wedding-hanging-strings" id="wedding-strings-img" loading="lazy" decoding="async">
+
+                <!-- Layer 5: Halo Glow Effects -->
+                <div class="wedding-halo-glow-rama"></div>
+                <div class="wedding-halo-glow-sita"></div>
+
+                <!-- Layer 6: Main Characters (Rama & Sita) -->
+                <div class="wedding-couple-container">
+                    <img src="assets/wedding/Rama_Wedding_Garland_Transparent.png" alt="Lord Rama with Wedding Garland and Sacred Bow" class="wedding-char-rama" id="wedding-rama-img" loading="lazy" decoding="async">
+                    <img src="assets/wedding/Sita_Wedding_Garland_Transparent.png" alt="Goddess Sita in Divine Wedding Garments with Garland" class="wedding-char-sita" id="wedding-sita-img" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Layer 7: Flower Rangoli & Diyas -->
+                <img src="assets/wedding/Wedding_Flower_Rangoli_Diyas.png" alt="Flower Rangoli with Traditional Glowing Diyas" class="wedding-rangoli" id="wedding-rangoli-img" loading="lazy" decoding="async">
+
+                <!-- Layer 8: Sacred Fire & Havan Kund -->
+                <div class="wedding-havan-container">
+                    <div class="wedding-fire-aura"></div>
+                    <img src="assets/wedding/Havan_Kund_Fire_Holder.png" alt="Sacred Havan Kund Fire Holder" class="wedding-havan-kund" id="wedding-havan-img" loading="lazy" decoding="async">
+                    <img src="assets/wedding/Flame_Left.png" alt="Sacred Wedding Flame" class="wedding-fire-flame" id="wedding-flame-img" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Interactive Controls -->
+    <div class="wedding-controls">
+        <button class="wedding-btn" id="wedding-play-pause-btn" aria-label="Pause Animations"><span>⏸ Pause</span></button>
+        <button class="wedding-btn" id="wedding-mandap-toggle-btn" aria-label="Toggle Mandap View"><span>🏛 Pillars &amp; Toran</span></button>
+        <button class="wedding-btn" id="wedding-sound-btn" aria-label="Toggle BGM Audio"><span>🎵 Sound</span></button>
+        <button class="wedding-btn" id="wedding-download-btn" aria-label="Export High-Res Canvas"><span>📸 Export</span></button>
+    </div>
+
+    <script src="wedding-scene.js"></script>
+    <script>
+        // Sound toggle button wiring for standalone page
+        const soundBtn = document.getElementById('wedding-sound-btn');
+        const bgm = document.getElementById('wedding-bgm-player');
+        if (soundBtn && bgm) {
+            let isMuted = true;
+            soundBtn.addEventListener('click', () => {
+                isMuted = !isMuted;
+                if (!isMuted) {
+                    bgm.play().then(() => {
+                        soundBtn.innerHTML = '<span>🔊 Music ON</span>';
+                    }).catch(e => console.log('BGM click to play:', e));
+                } else {
+                    bgm.pause();
+                    soundBtn.innerHTML = '<span>🎵 Sound</span>';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
