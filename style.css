@@ -493,3 +493,19 @@ body.ui-sketch .radio-group {
     align-items: center;
     justify-content: center;
 }
+
+/* ==========================================================
+   MOBILE & RENDERING OPTIMIZATION (FCP & TTI)
+   ========================================================== */
+.section:not(#home) {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
+}
+
+/* Ensure smooth GPU compositing without layout recalculation */
+.hero__image,
+.project__card,
+.skill__card {
+    will-change: transform;
+    transform: translateZ(0);
+}

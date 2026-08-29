@@ -27,16 +27,30 @@
 
     <title>Aditya Kalburgi | AI Full Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Preconnect to external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Google Fonts with display=swap -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap"
         rel="stylesheet">
+
+    <!-- Critical Core & Default Theme Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modern.css">
-    <link rel="stylesheet" href="neo-brutalism.css">
-    <link rel="stylesheet" href="Sketch.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <!-- Non-Blocking Alternate Theme Stylesheets (Loaded Asynchronously for Instant Mobile FCP) -->
+    <link rel="preload" href="neo-brutalism.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="neo-brutalism.css"></noscript>
+
+    <link rel="preload" href="Sketch.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="Sketch.css"></noscript>
+
+    <!-- Non-Blocking External Devicon CDN -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"></noscript>
 </head>
 
 <body class="ui-modern">

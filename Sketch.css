@@ -47,6 +47,11 @@ body:not(.ui-sketch) .ravan-ui-container {
 }
 
 /* Kailash Scene Container (Assembled 100% from Individual Layer PNGs) */
+.ravan-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 750px;
+}
+
 #ravan-kailash-saga {
     position: relative;
     width: 100%;

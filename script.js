@@ -660,9 +660,14 @@ if (heroContent) {
     const heroImage = document.querySelector('.hero__image');
 
     if (toggleContainer && heroImage) {
-        // Preload glitch audio
-        const glitchSound = new Audio('images/glitch.aac');
-        glitchSound.preload = 'auto';
+        let glitchSound = null;
+        const getGlitchSound = () => {
+            if (!glitchSound) {
+                glitchSound = new Audio('images/glitch.aac');
+                glitchSound.preload = 'none';
+            }
+            return glitchSound;
+        };
 
         const buttons = toggleContainer.querySelectorAll('.image-toggle-btn');
         buttons.forEach(btn => {
@@ -670,9 +675,10 @@ if (heroContent) {
                 e.stopPropagation();
                 if (btn.classList.contains('active')) return;
 
-                // Play glitch sound
-                glitchSound.currentTime = 0;
-                glitchSound.play().catch(err => console.log('Audio playback failed:', err));
+                // Play glitch sound on-demand
+                const sound = getGlitchSound();
+                sound.currentTime = 0;
+                sound.play().catch(err => console.log('Audio playback waiting for interaction:', err));
 
                 // Add visual glitch animation class
                 heroImage.classList.add('glitch-active');
@@ -714,9 +720,14 @@ if (heroContent) {
     let videoQueue = [];
     let lastPlayedVideo = null;
 
-    // Preload audio sound effect for egg cracking interaction
-    const crackSound = new Audio('.vscode/Music/Shake sound.mp3');
-    crackSound.preload = 'auto';
+    let crackSound = null;
+    const getCrackSound = () => {
+        if (!crackSound) {
+            crackSound = new Audio('.vscode/Music/Shake sound.mp3');
+            crackSound.preload = 'none';
+        }
+        return crackSound;
+    };
 
     function getNextVideo() {
         if (videoQueue.length === 0) {
@@ -942,9 +953,9 @@ if (heroContent) {
                 return;
             }
             lastClickTime = now;
-
-            crackSound.currentTime = 0;
-            crackSound.play().catch(err => console.log('Audio playback failed:', err));
+            const sound = getCrackSound();
+            sound.currentTime = 0;
+            sound.play().catch(err => console.log('Audio playback failed:', err));
 
             if (activeDecorator && activeDecorator !== decorator) {
                 activeDecorator.closeDecorator();
