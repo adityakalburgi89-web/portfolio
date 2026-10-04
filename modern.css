@@ -1234,6 +1234,76 @@ body.ui-modern .fade-in.visible {
     }
 }
 
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    body.ui-modern .container {
+        padding: 0 0.75rem;
+    }
+
+    body.ui-modern .header {
+        height: 64px;
+    }
+
+    body.ui-modern .nav__menu {
+        top: 64px;
+        height: calc(100vh - 64px);
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    body.ui-modern .section {
+        padding: 3rem 0.75rem;
+    }
+
+    body.ui-modern .hero {
+        padding: 3.5rem 0.75rem 2rem 0.75rem;
+    }
+
+    body.ui-modern .hero__image {
+        width: 150px;
+        height: 150px;
+    }
+
+    body.ui-modern .hero__title {
+        font-size: 1.6rem;
+    }
+
+    body.ui-modern .hero__subtitle {
+        font-size: 1.3rem;
+    }
+
+    body.ui-modern .hero__description {
+        font-size: 0.95rem;
+    }
+
+    body.ui-modern .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    body.ui-modern .skill__card {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    body.ui-modern .project__card {
+        padding: 1.1rem;
+    }
+
+    body.ui-modern .project__title {
+        font-size: 1.2rem;
+    }
+
+    body.ui-modern .experience__item {
+        padding: 1.1rem;
+    }
+
+    body.ui-modern .form__input {
+        font-size: 16px;
+        padding: 0.75rem;
+    }
+}
+
 /* ==========================================================
    Y2K MODERN RETRO THEME WIDGET OVERRIDES
    ========================================================== */

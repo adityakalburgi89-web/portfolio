@@ -343,18 +343,89 @@ body.ui-sketch .radio-group {
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
+    .theme-switcher-container {
+        top: 76px;
+        left: 12px;
+        z-index: 999;
+    }
+
+    .radio-group {
+        gap: 6px;
+        padding: 4px;
+        border-radius: 12px;
+    }
+
+    .radio-group .radio-card {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 4px !important;
+        border-radius: 8px;
+    }
+
+    .shape-wrap {
+        width: 18px;
+        height: 18px;
+    }
+
     .decorator-left {
-        bottom: 20px;
-        left: 20px;
-        width: 60px;
-        height: 60px;
+        bottom: 16px;
+        left: 12px;
+        width: 52px;
+        height: 52px;
     }
 
     .decorator-right {
-        top: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+        top: 76px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .dino-bubble {
+        font-size: 9px;
+        padding: 3px 6px;
+        margin-bottom: 4px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .theme-switcher-container {
+        top: 74px;
+        left: 8px;
+    }
+
+    .radio-group {
+        gap: 4px;
+        padding: 3px;
+    }
+
+    .radio-group .radio-card {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 3px !important;
+    }
+
+    .shape-wrap {
+        width: 16px;
+        height: 16px;
+    }
+
+    .decorator-left {
+        bottom: 12px;
+        left: 8px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .decorator-right {
+        top: 74px;
+        right: 8px;
+        width: 40px;
+        height: 40px;
     }
 }
 

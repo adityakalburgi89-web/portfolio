@@ -1,0 +1,25 @@
+{
+  "name": "git-activity-generator",
+  "version": "1.0.0",
+  "description": "Realistic, human-like Git commit history generator with natural gaps and varied density.",
+  "main": "generate.js",
+  "bin": {
+    "generate-git-activity": "./generate.js"
+  },
+  "scripts": {
+    "start": "node generate.js",
+    "preview": "node generate.js --dry-run",
+    "heavy": "node generate.js --profile heavy",
+    "moderate": "node generate.js --profile moderate",
+    "light": "node generate.js --profile light"
+  },
+  "keywords": [
+    "git",
+    "github",
+    "contribution-graph",
+    "commit-history",
+    "activity-generator"
+  ],
+  "author": "Aditya Kalburgi",
+  "license": "MIT"
+}
