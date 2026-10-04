@@ -427,6 +427,7 @@ if (heroContent) {
             }
         });
 
+
         // Form submission listener for Ravan UI contact form
         const ravanForm = document.getElementById('ravan-contact-form');
         if (ravanForm) {
