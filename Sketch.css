@@ -1546,9 +1546,9 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
 
 
 /* ==========================================================
-   KANNADA SCRIPT ANATOMY FOOTER (Exact Reference Reproduction)
+   KANNADA SCRIPT ANATOMY FOOTER (Full-Length End-to-End Layout)
    Burnt-Orange Strip (#D64D15) + Warm Cream Panel (#F6E6C9)
-   Deep Maroon Kannada Typography (#580801) + Editorial Anatomy
+   Deep Maroon Kannada Typography (#580801) + Full-Width Guidelines
    ========================================================== */
 .kannada-anatomy-footer {
     position: relative;
@@ -1563,7 +1563,7 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     font-family: 'Noto Sans Kannada', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Top Burnt-Orange Strip (Full-width, 38px tall) */
+/* Top Burnt-Orange Strip (Full-width 100% viewport width, 38px tall) */
 .kannada-anatomy-strip {
     width: 100%;
     height: 38px;
@@ -1571,48 +1571,34 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     display: block;
 }
 
-/* Warm Cream Anatomy Section (Full viewport width background, centered composition) */
-.kannada-anatomy-panel {
-    width: 100%;
-    max-width: 950px;
-    margin: 0 auto;
+/* Full-length Anatomy Stage (100% edge-to-edge width) */
+.kannada-anatomy-stage {
     position: relative;
-    padding: 10px 16px 24px 16px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Responsive Anatomy SVG Canvas */
-.kannada-anatomy-svg {
     width: 100%;
-    height: auto;
-    max-height: 335px;
+    height: 322px;
+    background-color: #F6E6C9;
+    overflow: hidden;
+}
+
+/* 1. Full-viewport End-to-End Guide Lines (0% to 100%) */
+.kannada-guidelines-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
     display: block;
-    user-select: text;
-    overflow: visible;
 }
 
-/* 1. Anatomy Heading (Centered Italic Bold Serif) */
-.kannada-anatomy-svg .anatomy-heading {
-    fill: #580801;
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 22px;
-    text-anchor: middle;
-    letter-spacing: 0.2px;
-}
-
-/* 2. Guide Lines & Guideline Labels */
-.kannada-anatomy-svg .guideline-line {
+.kannada-anatomy-footer .guideline-line {
     stroke: #E8AD8B;
     stroke-width: 1px;
     stroke-dasharray: 6 5;
 }
 
-.kannada-anatomy-svg .guideline-label {
+.kannada-anatomy-footer .guideline-label {
     fill: #B94318;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 11px;
@@ -1625,8 +1611,39 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     stroke-linejoin: round;
 }
 
-/* 3. Centerpiece Kannada Display Typography (ನಮ್ಮ ಕನ್ನಡ) */
-.kannada-anatomy-svg .kannada-display-text {
+/* 2. Centered Centerpiece Composition (Typography & Annotations) */
+.kannada-centerpiece-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 950px;
+    height: 322px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.kannada-centerpiece-svg {
+    width: 950px;
+    height: 322px;
+    display: block;
+    user-select: text;
+    pointer-events: auto;
+}
+
+/* Anatomy Heading (Centered Italic Bold Serif) */
+.kannada-anatomy-footer .anatomy-heading {
+    fill: #580801;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
+}
+
+/* Centerpiece Kannada Display Typography (ನಮ್ಮ ಕನ್ನಡ) */
+.kannada-anatomy-footer .kannada-display-text {
     fill: #580801;
     font-family: 'Noto Serif Kannada', 'Noto Sans Kannada', serif;
     font-weight: 900;
@@ -1637,21 +1654,21 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 4. Annotations: Connectors, Highlight Circles, and Labels */
-.kannada-anatomy-svg .annotation-connector {
+/* Annotations: Connectors, Highlight Circles, and Labels */
+.kannada-anatomy-footer .annotation-connector {
     stroke: #B94318;
     stroke-width: 1px;
     fill: none;
     stroke-linecap: square;
 }
 
-.kannada-anatomy-svg .annotation-circle {
+.kannada-anatomy-footer .annotation-circle {
     fill: rgba(214, 77, 21, 0.22);
     stroke: #D64D15;
     stroke-width: 1.2px;
 }
 
-.kannada-anatomy-svg .annotation-label {
+.kannada-anatomy-footer .annotation-label {
     fill: #B94318;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: 11px;
@@ -1664,10 +1681,35 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     stroke-linejoin: round;
 }
 
-/* Responsive Scaling: Tablet */
-@media screen and (max-width: 900px) {
-    .kannada-anatomy-panel {
-        padding: 8px 12px 18px 12px;
+/* Centerpiece lines/labels only appear when centerpiece expands on tablet/mobile */
+.kannada-anatomy-footer .centerpiece-only-line,
+.kannada-anatomy-footer .centerpiece-only-label {
+    display: none;
+}
+
+/* Responsive Scaling: Tablet & Mobile */
+@media screen and (max-width: 950px) {
+    .kannada-guidelines-svg {
+        display: none;
+    }
+    .kannada-anatomy-footer .centerpiece-only-line,
+    .kannada-anatomy-footer .centerpiece-only-label {
+        display: inline;
+    }
+    .kannada-anatomy-stage {
+        height: 34vw;
+        min-height: 220px;
+        max-height: 322px;
+    }
+    .kannada-centerpiece-wrap {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        transform: none;
+    }
+    .kannada-centerpiece-svg {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1676,15 +1718,16 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     .kannada-anatomy-strip {
         height: 28px;
     }
-    .kannada-anatomy-panel {
-        padding: 6px 8px 14px 8px;
+    .kannada-anatomy-stage {
+        height: 48vw;
+        min-height: 180px;
     }
-    .kannada-anatomy-svg .annotation-label {
+    .kannada-anatomy-footer .annotation-label {
         font-size: 13.5px;
         font-weight: 700;
         stroke-width: 5px;
     }
-    .kannada-anatomy-svg .guideline-label {
+    .kannada-anatomy-footer .guideline-label {
         font-size: 13px;
         font-weight: 600;
         stroke-width: 7px;
