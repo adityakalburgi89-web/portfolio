@@ -1546,127 +1546,149 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
 
 
 /* ==========================================================
-   RAVAN FOLK-ART FOOTER (Acme Layout in #6A3DB4 & Kannada)
+   KANNADA SCRIPT ANATOMY FOOTER (Exact Reference Reproduction)
+   Burnt-Orange Strip (#D64D15) + Warm Cream Panel (#F6E6C9)
+   Deep Maroon Kannada Typography (#580801) + Editorial Anatomy
    ========================================================== */
-.ravan-folk-footer {
+.kannada-anatomy-footer {
     position: relative;
     z-index: 10;
     width: 100%;
-    background-color: #6A3DB4 !important;
-    margin: 50px 0 0 0;
-    padding: 60px 0 35px 0;
+    background-color: #F6E6C9 !important;
+    margin: 60px 0 0 0;
+    padding: 0 !important;
     box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
     border-top: none !important;
+    overflow: hidden;
     font-family: 'Noto Sans Kannada', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #ffffff;
 }
 
-.ravan-footer-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
-    box-sizing: border-box;
-}
-
-/* Main Top Section */
-.ravan-footer-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 48px;
-}
-
-/* Left Brand Block - Only PNG, No Card, No Gold */
-.ravan-footer-brand {
-    flex: 0 0 300px;
-    max-width: 300px;
-    text-align: left;
-}
-
-.ravan-footer-brand-img {
-    width: 115px;
-    height: auto;
-    aspect-ratio: 769 / 968;
-    object-fit: contain;
+/* Top Burnt-Orange Strip (Full-width, 38px tall) */
+.kannada-anatomy-strip {
+    width: 100%;
+    height: 38px;
+    background-color: #D64D15;
     display: block;
-    margin-bottom: 16px;
-    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
-    transition: transform 0.3s ease;
 }
 
-.ravan-footer-brand-img:hover {
-    transform: scale(1.04);
-}
-
-.ravan-footer-brand-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 0 0 8px 0;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.ravan-footer-brand-desc {
-    font-size: 0.92rem;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-}
-
-/* Right Nav Grid (4 Columns) - Clean White Text */
-.ravan-footer-nav-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-    text-align: left;
-}
-
-.ravan-footer-col-header {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 18px 0;
-    letter-spacing: 0.5px;
-}
-
-.ravan-footer-col-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Warm Cream Anatomy Section (Full viewport width background, centered composition) */
+.kannada-anatomy-panel {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px 16px 24px 16px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
-.ravan-footer-col-links li a {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
-    font-size: 0.88rem;
-    line-height: 1.4;
-    transition: color 0.2s ease, transform 0.2s ease;
-    display: inline-block;
+/* Responsive Anatomy SVG Canvas */
+.kannada-anatomy-svg {
+    width: 100%;
+    height: auto;
+    max-height: 335px;
+    display: block;
+    user-select: text;
+    overflow: visible;
 }
 
-.ravan-footer-col-links li a:hover {
-    color: #ffffff;
-    transform: translateX(2px);
+/* 1. Anatomy Heading (Centered Italic Bold Serif) */
+.kannada-anatomy-svg .anatomy-heading {
+    fill: #580801;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
 }
 
-/* Bottom Bar */
-.ravan-footer-bottom {
-    margin-top: 50px;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center;
+/* 2. Guide Lines & Guideline Labels */
+.kannada-anatomy-svg .guideline-line {
+    stroke: #E8AD8B;
+    stroke-width: 1px;
+    stroke-dasharray: 6 5;
 }
 
-.ravan-footer-copy {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-    letter-spacing: 0.5px;
+.kannada-anatomy-svg .guideline-label {
+    fill: #B94318;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-anchor: start;
+    letter-spacing: 0.2px;
+    paint-order: stroke fill;
+    stroke: #F6E6C9;
+    stroke-width: 6px;
+    stroke-linejoin: round;
+}
+
+/* 3. Centerpiece Kannada Display Typography (ನಮ್ಮ ಕನ್ನಡ) */
+.kannada-anatomy-svg .kannada-display-text {
+    fill: #580801;
+    font-family: 'Noto Serif Kannada', 'Noto Sans Kannada', serif;
+    font-weight: 900;
+    font-size: 96px;
+    letter-spacing: -0.5px;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Annotations: Connectors, Highlight Circles, and Labels */
+.kannada-anatomy-svg .annotation-connector {
+    stroke: #B94318;
+    stroke-width: 1px;
+    fill: none;
+    stroke-linecap: square;
+}
+
+.kannada-anatomy-svg .annotation-circle {
+    fill: rgba(214, 77, 21, 0.22);
+    stroke: #D64D15;
+    stroke-width: 1.2px;
+}
+
+.kannada-anatomy-svg .annotation-label {
+    fill: #B94318;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
+    paint-order: stroke fill;
+    stroke: #F6E6C9;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+}
+
+/* Responsive Scaling: Tablet */
+@media screen and (max-width: 900px) {
+    .kannada-anatomy-panel {
+        padding: 8px 12px 18px 12px;
+    }
+}
+
+/* Responsive Scaling: Mobile */
+@media screen and (max-width: 600px) {
+    .kannada-anatomy-strip {
+        height: 28px;
+    }
+    .kannada-anatomy-panel {
+        padding: 6px 8px 14px 8px;
+    }
+    .kannada-anatomy-svg .annotation-label {
+        font-size: 13.5px;
+        font-weight: 700;
+        stroke-width: 5px;
+    }
+    .kannada-anatomy-svg .guideline-label {
+        font-size: 13px;
+        font-weight: 600;
+        stroke-width: 7px;
+    }
 }
 
 
@@ -2264,32 +2286,6 @@ body.ravan-dramatic-dark .nataraja-divider-img {
 
     .adrija-media-frame {
         border-radius: 10px;
-    }
-
-    /* Ravan Folk Footer Mobile */
-    .ravan-folk-footer {
-        padding: 40px 0 25px 0;
-    }
-
-    .ravan-footer-main {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .ravan-footer-brand {
-        flex: 0 0 auto;
-        max-width: 100%;
-    }
-
-    .ravan-footer-nav-grid {
-        width: 100%;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px 16px;
-    }
-
-    .ravan-footer-bottom {
-        margin-top: 35px;
-        padding-top: 20px;
     }
 
     /* Weapon Modal */

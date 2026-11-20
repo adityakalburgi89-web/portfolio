@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  
+  .kannada-anatomy-footer {
+    width: 100%;
+    background-color: #F6E6C9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .kannada-anatomy-strip {
+    width: 100%;
+    height: 38px;
+    background-color: #D64D15;
+  }
+  
+  .kannada-anatomy-panel {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 10px;
+  }
+  
+  .kannada-anatomy-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: text;
+  }
+  
+  /* Make sure SVG text is selectable and crisp */
+  .kannada-anatomy-svg text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+</head>
+<body>
+
+<footer class="kannada-anatomy-footer" id="ravan-footer">
+  <div class="kannada-anatomy-strip"></div>
+  <div class="kannada-anatomy-panel">
+    <svg class="kannada-anatomy-svg" viewBox="0 0 950 322" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Anatomy Heading -->
+      <text x="475" y="44" text-anchor="middle" fill="#580801" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="22">Anatomy</text>
+
+      <!-- 4 Horizontal Guide Lines across Canvas -->
+      <!-- Head Line: y=117 -->
+      <text x="20" y="120" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">Head Line</text>
+      <line x1="82" y1="117" x2="930" y2="117" stroke="#E8AD8B" stroke-dasharray="6 5" stroke-width="1" />
+
+      <!-- X-Height: y=139 -->
+      <text x="20" y="142" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">X-Height</text>
+      <line x1="82" y1="139" x2="930" y2="139" stroke="#E8AD8B" stroke-dasharray="6 5" stroke-width="1" />
+
+      <!-- Baseline: y=203 -->
+      <text x="20" y="206" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">Baseline</text>
+      <line x1="82" y1="203" x2="930" y2="203" stroke="#E8AD8B" stroke-dasharray="6 5" stroke-width="1" />
+
+      <!-- Descender Line: y=232 -->
+      <text x="20" y="235" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">Descender Line</text>
+      <line x1="108" y1="232" x2="930" y2="232" stroke="#E8AD8B" stroke-dasharray="6 5" stroke-width="1" />
+
+      <!-- Main Centerpiece Kannada Text -->
+      <text x="532" y="203" text-anchor="middle" fill="#580801" font-family="'Noto Serif Kannada', 'Noto Sans Kannada', serif" font-weight="900" font-size="96" letter-spacing="-0.5px">ನಮ್ಮ ಕನ್ನಡ</text>
+
+      <!-- Circular Highlight Markers -->
+      <!-- Matra Circle around e-matra of mma -->
+      <circle cx="400" cy="130" r="17" fill="rgba(214, 77, 21, 0.22)" stroke="#D64D15" stroke-width="1.2" />
+      
+      <!-- Angular Terminal Circle around top serif of ka -->
+      <circle cx="514" cy="143" r="19" fill="rgba(214, 77, 21, 0.22)" stroke="#D64D15" stroke-width="1.2" />
+
+      <!-- Top Typography Annotations (5 items) -->
+      <!-- 1. Vashya -->
+      <text x="265" y="73" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Vashya</text>
+      <line x1="265" y1="80" x2="265" y2="117" stroke="#B94318" stroke-width="1" />
+
+      <!-- 2. Matra -->
+      <text x="373" y="73" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Matra</text>
+      <path d="M 373 80 L 373 105 L 392 116" fill="none" stroke="#B94318" stroke-width="1" />
+
+      <!-- 3. Angular Terminal -->
+      <text x="514" y="73" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Angular Terminal</text>
+      <line x1="514" y1="80" x2="514" y2="124" stroke="#B94318" stroke-width="1" />
+
+      <!-- 4. Loop -->
+      <text x="643" y="73" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Loop</text>
+      <line x1="643" y1="80" x2="643" y2="127" stroke="#B94318" stroke-width="1" />
+
+      <!-- 5. Shirorekha (Top Line) -->
+      <text x="770" y="73" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Shirorekha (Top Line)</text>
+      <line x1="762" y1="80" x2="762" y2="144" stroke="#B94318" stroke-width="1" />
+
+      <!-- Bottom Typography Annotations (3 items) -->
+      <!-- 1. Bold Stem -->
+      <line x1="366" y1="203" x2="366" y2="254" stroke="#B94318" stroke-width="1" />
+      <text x="366" y="268" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Bold Stem</text>
+
+      <!-- 2. Counter -->
+      <line x1="533" y1="203" x2="533" y2="254" stroke="#B94318" stroke-width="1" />
+      <text x="533" y="268" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Counter</text>
+
+      <!-- 3. Tail -->
+      <line x1="693" y1="232" x2="693" y2="254" stroke="#B94318" stroke-width="1" />
+      <text x="693" y="268" text-anchor="middle" fill="#B94318" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Tail</text>
+    </svg>
+  </div>
+</footer>
+
+<script>
+  // Ensure fonts ready before screenshot
+  document.fonts.ready.then(() => {
+    console.log('Fonts loaded and ready');
+  });
+</script>
+</body>
+</html>

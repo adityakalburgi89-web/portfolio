@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #140803; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  
+  /* ==========================================================
+     KANNADA SCRIPT ANATOMY FOOTER (Exact Reference Reproduction)
+     ========================================================== */
+  .kannada-anatomy-footer {
+    position: relative;
+    width: 100%;
+    background-color: #F6E6C9;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin-top: 60px;
+    padding: 0;
+  }
+
+  /* Top Burnt-Orange Strip (38px height) */
+  .kannada-anatomy-strip {
+    width: 100%;
+    height: 38px;
+    background-color: #D64D15;
+    display: block;
+  }
+
+  /* Warm Cream Anatomy Panel (322px height reference) */
+  .kannada-anatomy-panel {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px 16px 24px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .kannada-anatomy-svg {
+    width: 100%;
+    height: auto;
+    max-height: 330px;
+    display: block;
+    user-select: text;
+    overflow: visible;
+  }
+
+  /* Typography styling within SVG */
+  .anatomy-heading {
+    fill: #580801;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
+  }
+
+  .guideline-line {
+    stroke: #E8AD8B;
+    stroke-width: 1px;
+    stroke-dasharray: 6 5;
+  }
+
+  .guideline-label {
+    fill: #B94318;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-anchor: start;
+    letter-spacing: 0.2px;
+    paint-order: stroke fill;
+    stroke: #F6E6C9;
+    stroke-width: 6px;
+    stroke-linejoin: round;
+  }
+
+  .kannada-display-text {
+    fill: #580801;
+    font-family: 'Noto Serif Kannada', 'Noto Sans Kannada', serif;
+    font-weight: 900;
+    font-size: 96px;
+    letter-spacing: -0.5px;
+    text-anchor: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .annotation-connector {
+    stroke: #B94318;
+    stroke-width: 1px;
+    fill: none;
+    stroke-linecap: square;
+  }
+
+  .annotation-circle {
+    fill: rgba(214, 77, 21, 0.22);
+    stroke: #D64D15;
+    stroke-width: 1.2px;
+  }
+
+  .annotation-label {
+    fill: #B94318;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-anchor: middle;
+    letter-spacing: 0.2px;
+    paint-order: stroke fill;
+    stroke: #F6E6C9;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+  }
+
+  /* Responsive Adjustments for Tablet */
+  @media (max-width: 900px) {
+    .kannada-anatomy-panel {
+      padding: 8px 12px 18px 12px;
+    }
+  }
+
+  /* Responsive Adjustments for Mobile */
+  @media (max-width: 600px) {
+    .kannada-anatomy-strip {
+      height: 28px;
+    }
+    .kannada-anatomy-panel {
+      padding: 6px 8px 14px 8px;
+    }
+    .annotation-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      stroke-width: 5px;
+    }
+    .guideline-label {
+      font-size: 13px;
+      font-weight: 600;
+      stroke-width: 7px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div style="padding: 40px 20px; text-align: center;">
+  <h2>Portfolio Content Above Footer</h2>
+</div>
+
+<!-- ==========================================================
+     KANNADA SCRIPT ANATOMY FOOTER COMPONENT
+     ========================================================== -->
+<footer class="kannada-anatomy-footer" id="ravan-footer" role="contentinfo" aria-label="Kannada Script Anatomy Footer">
+  <!-- Top Burnt-Orange Strip -->
+  <div class="kannada-anatomy-strip" aria-hidden="true"></div>
+
+  <!-- Anatomy Panel Section -->
+  <div class="kannada-anatomy-panel">
+    <svg class="kannada-anatomy-svg" viewBox="0 0 950 322" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomy of Kannada script: ನಮ್ಮ ಕನ್ನಡ">
+      <!-- 1. Anatomy Heading -->
+      <text x="475" y="44" class="anatomy-heading">Anatomy</text>
+
+      <!-- 2. Typography Guide Lines (4 horizontal dashed lines across canvas) -->
+      <!-- Head Line: y=117 -->
+      <line x1="8" y1="117" x2="942" y2="117" class="guideline-line" />
+      <text x="20" y="120" class="guideline-label">Head Line</text>
+
+      <!-- X-Height: y=139 -->
+      <line x1="8" y1="139" x2="942" y2="139" class="guideline-line" />
+      <text x="20" y="142" class="guideline-label">X-Height</text>
+
+      <!-- Baseline: y=203 -->
+      <line x1="8" y1="203" x2="942" y2="203" class="guideline-line" />
+      <text x="20" y="206" class="guideline-label">Baseline</text>
+
+      <!-- Descender Line: y=232 -->
+      <line x1="8" y1="232" x2="942" y2="232" class="guideline-line" />
+      <text x="20" y="235" class="guideline-label">Descender Line</text>
+
+      <!-- 3. Main Centerpiece Kannada Typography -->
+      <text x="532" y="203" class="kannada-display-text">ನಮ್ಮ ಕನ್ನಡ</text>
+
+      <!-- 4. Circular Highlight Markers -->
+      <!-- Matra Circle around e-matra of mma -->
+      <circle cx="401" cy="130" r="17" class="annotation-circle" />
+      
+      <!-- Angular Terminal Circle around top serif of ka -->
+      <circle cx="518" cy="141" r="19" class="annotation-circle" />
+
+      <!-- 5. Top Typography Annotations (5 Items) -->
+      <!-- (1) Vashya -->
+      <text x="265" y="73" class="annotation-label">Vashya</text>
+      <line x1="265" y1="80" x2="265" y2="117" class="annotation-connector" />
+
+      <!-- (2) Matra -->
+      <text x="375" y="73" class="annotation-label">Matra</text>
+      <path d="M 379 80 L 379 102 L 401 113" class="annotation-connector" />
+
+      <!-- (3) Angular Terminal -->
+      <text x="518" y="73" class="annotation-label">Angular Terminal</text>
+      <line x1="518" y1="80" x2="518" y2="122" class="annotation-connector" />
+
+      <!-- (4) Loop -->
+      <text x="654" y="73" class="annotation-label">Loop</text>
+      <line x1="654" y1="80" x2="654" y2="128" class="annotation-connector" />
+
+      <!-- (5) Shirorekha (Top Line) -->
+      <text x="778" y="73" class="annotation-label">Shirorekha (Top Line)</text>
+      <line x1="776" y1="80" x2="776" y2="144" class="annotation-connector" />
+
+      <!-- 6. Bottom Typography Annotations (3 Items) -->
+      <!-- (1) Bold Stem -->
+      <line x1="372" y1="203" x2="372" y2="254" class="annotation-connector" />
+      <text x="372" y="268" class="annotation-label">Bold Stem</text>
+
+      <!-- (2) Counter -->
+      <line x1="542" y1="203" x2="542" y2="254" class="annotation-connector" />
+      <text x="542" y="268" class="annotation-label">Counter</text>
+
+      <!-- (3) Tail -->
+      <line x1="698" y1="232" x2="698" y2="254" class="annotation-connector" />
+      <text x="704" y="268" class="annotation-label">Tail</text>
+    </svg>
+  </div>
+</footer>
+
+<script>
+  document.fonts.ready.then(() => {
+    document.body.classList.add('fonts-ready');
+  });
+</script>
+</body>
+</html>
