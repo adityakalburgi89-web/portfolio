@@ -1457,7 +1457,7 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
 }
 
 /* ==========================================================
-   ADRIJA : THE GAME — SHOWCASE & COMING SOON SECTION
+   ADRIJA : THE GAME — SHOWCASE SECTION
    ========================================================== */
 .adrija-showcase-container {
     max-width: 1040px;
@@ -1466,21 +1466,6 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     text-align: center;
     position: relative;
     z-index: 10;
-}
-
-.adrija-section-badge {
-    display: inline-block;
-    padding: 5px 18px;
-    background: rgba(28, 12, 4, 0.95);
-    border: 1.5px solid #ffd700;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: #ffd700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.35);
 }
 
 .adrija-section-title {
@@ -1509,18 +1494,8 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     border: 2px solid #d49f30;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 179, 35, 0.3);
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.4s ease,
-                border-color 0.4s ease;
     user-select: none;
-}
-
-.adrija-game-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: #ffe066;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95),
-                0 0 50px rgba(255, 215, 0, 0.7),
-                0 0 90px rgba(229, 179, 35, 0.45);
+    cursor: default;
 }
 
 /* Media Frame */
@@ -1538,12 +1513,6 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.5s ease;
-}
-
-.adrija-game-card:hover .adrija-banner-image {
-    transform: scale(1.03);
-    filter: brightness(1.06);
 }
 
 .adrija-frame-vignette {
@@ -1553,56 +1522,6 @@ body.ui-sketch .theme-switcher-container .radio-option input:checked+.radio-card
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(229, 179, 35, 0.2);
     pointer-events: none;
     z-index: 2;
-}
-
-/* Hover Overlay — Only on Hover */
-.adrija-hover-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, rgba(18, 7, 2, 0.78) 0%, rgba(10, 3, 1, 0.92) 100%);
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-}
-
-.adrija-game-card:hover .adrija-hover-overlay {
-    opacity: 1;
-}
-
-.adrija-hover-box {
-    text-align: center;
-    padding: 20px;
-    transform: translateY(10px);
-    transition: transform 0.35s ease;
-}
-
-.adrija-game-card:hover .adrija-hover-box {
-    transform: translateY(0);
-}
-
-.adrija-hover-badge {
-    display: inline-block;
-    padding: 10px 32px;
-    background: linear-gradient(135deg, rgba(45, 18, 7, 0.95), rgba(20, 8, 3, 0.98));
-    border: 2px solid #ffd700;
-    color: #ffd700;
-    font-size: 1.15rem;
-    font-weight: 900;
-    letter-spacing: 4px;
-    border-radius: 40px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.6);
-    text-transform: uppercase;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.adrija-game-card:hover .adrija-hover-badge {
-    transform: scale(1.05);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 215, 0, 0.85);
 }
 
 
@@ -2183,12 +2102,6 @@ body.ravan-dramatic-dark .nataraja-divider-img {
     /* Adrija Showcase Mobile */
     .adrija-showcase-container {
         padding: 0 10px;
-    }
-
-    .adrija-hover-badge {
-        font-size: 0.95rem;
-        padding: 8px 24px;
-        letter-spacing: 2.5px;
     }
 
     /* Weapon Modal */
